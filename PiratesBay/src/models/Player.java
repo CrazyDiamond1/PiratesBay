@@ -1,45 +1,29 @@
 package models;
 
-public class Player extends Character{
+import java.util.ArrayList;
 
-	String captainName;
-	int crewSize;
-	int gold;
-	int combatEff;
+public class Player extends Character {
+
+	private ArrayList<Loot> loot = new ArrayList<>();
 	
-	
-	public String getCaptianName() {
-		
-		return captainName;
+	public Player(String name, int crew) {
+
+		setCaptainName(name);
+		setCrewCount(crew);
 	}
-	public void setCaptianName(String captianName) {
+
+	@Override
+	public void takeDamage(int damage) {
 		
-		this.captainName = captianName;
+		// TODO Auto-generated method stub
+
 	}
-	public int getCrewSize() {
+
+	@Override
+	public int combatCalc() {
 		
-		return crewSize;
+		// TODO Auto-generated method stub
+		return 0;
 	}
-	public void setCrewSize(int crewSize) {
-		
-		this.crewSize = crewSize;
-	}
-	public int getGold() {
-		
-		return gold;
-	}
-	public void setGold(int gold) {
-		
-		this.gold = gold;
-	}
-	public int getCombatEff() {
-		
-		return combatEff;
-	}
-	public void setCombatEff(int combatEff) {
-		
-		this.combatEff = combatEff;
-	}
-	
-	
+
 }
