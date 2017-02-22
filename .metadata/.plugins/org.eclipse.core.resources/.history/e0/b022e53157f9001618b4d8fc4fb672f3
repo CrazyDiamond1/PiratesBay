@@ -21,6 +21,9 @@ public class Player extends Character {
 	}
 
 
+
+
+
 	@Override
 	public void takeDamage(int damage) {
 		
@@ -37,11 +40,11 @@ public class Player extends Character {
 	
 	public void addLoot(Loot lootItem)
 	{
-		loot.put(lootItem.getName(), lootItem);
+		loot.add(lootItem);
 	}
 
 	public void removeLoot(Loot lootItem)
 	{
-		loot.remove(lootItem.getName());
+		loot.remove(lootItem);
 	}
 }

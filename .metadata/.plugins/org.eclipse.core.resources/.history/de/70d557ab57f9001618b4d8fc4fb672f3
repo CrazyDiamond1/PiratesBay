@@ -42,6 +42,6 @@ public class Player extends Character {
 
 	public void removeLoot(Loot lootItem)
 	{
-		loot.remove(lootItem.getName());
+		loot.remove(lootItem);
 	}
 }

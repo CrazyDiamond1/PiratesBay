@@ -1,0 +1,8 @@
+package models;
+
+import java.util.*;
+
+public abstract class Island {
+
+	HashMap<String, Loot> buyables = new HashMap<>();
+}

@@ -1,0 +1,18 @@
+package models;
+
+import java.util.*;
+
+public abstract class Island {
+
+	private HashMap<String, Loot> buyables = new HashMap<>();
+	private boolean isOwned;
+	
+	public Loot buy(Character player){
+		
+		//Place holder to prevent errors
+		Loot l = new Loot();
+		return l;
+	}
+	
+	
+}

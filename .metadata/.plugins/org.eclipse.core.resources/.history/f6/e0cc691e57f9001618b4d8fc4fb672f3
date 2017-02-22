@@ -1,10 +1,10 @@
 package models;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Player extends Character {
 
-	private HashMap<String, Loot> loot = new HashMap<>();
+	private ArrayList<Loot> loot = new ArrayList<>();
 	
 	public Player(String name, int crew) {
 
@@ -12,13 +12,14 @@ public class Player extends Character {
 		setCrewCount(crew);
 	}
 
-	public HashMap<String, Loot> getLoot() {
+	public ArrayList<Loot> getLoot() {
 		return loot;
 	}
-	
-	public void setLoot(HashMap<String, Loot> loot) {
+
+	public void setLoot(ArrayList<Loot> loot) {
 		this.loot = loot;
 	}
+
 
 
 	@Override
@@ -37,11 +38,11 @@ public class Player extends Character {
 	
 	public void addLoot(Loot lootItem)
 	{
-		loot.put(lootItem.getName(), lootItem);
+		loot.add(lootItem);
 	}
 
 	public void removeLoot(Loot lootItem)
 	{
-		loot.remove(lootItem.getName());
+		loot.remove(lootItem);
 	}
 }

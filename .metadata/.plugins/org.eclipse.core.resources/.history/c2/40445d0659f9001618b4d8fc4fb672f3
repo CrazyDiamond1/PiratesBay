@@ -8,7 +8,7 @@ public abstract class Island {
 	private boolean isOwned;
 
 	//changed from "Returns Loot" to "Returns Void"
-	public void itemToBuy(Player player, Loot lootItem) {
+	public void buy(Player player, Loot lootItem) {
 
 		player.setGold(player.getGold()-lootItem.getValue());
 		buyables.remove(lootItem.getName());
@@ -16,7 +16,7 @@ public abstract class Island {
 	}
 
 	//changed from "Returns int" to "Returns Void"
-	public void itemToSell(Player player, Loot lootItem) {
+	public void sell(Player player, Loot lootItem) {
 
 		player.setGold(player.getGold()+lootItem.getValue());
 		player.getLoot().remove(lootItem.getName());
