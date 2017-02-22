@@ -1,5 +1,30 @@
 package models;
 
-public class Equipment {
+public class Equipment extends Loot
+{
+	private int damageMod;
+	private int speedMod;
+	
+	public Equipment()
+	{
+		damageMod = rand.nextInt(100)+1;
+		speedMod = rand.nextInt(0)-30;
+	}
 
+	public int getDamageMod() {
+		return damageMod;
+	}
+
+	public void setDamageMod(int damageMod) {
+		this.damageMod = damageMod;
+	}
+
+	public int getSpeedMod() {
+		return speedMod;
+	}
+
+	public void setSpeedMod(int speedMod) {
+		this.speedMod = speedMod;
+	}
+	
 }
