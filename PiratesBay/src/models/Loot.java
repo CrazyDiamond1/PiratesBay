@@ -4,23 +4,28 @@ import java.util.Random;
 
 public class Loot 
 {
-	public Random rand = new Random();
+	protected Random rand = new Random();
 	
-	private String name;
-	private int value;
+	protected String name;
+	protected int value;
 	
 	public Loot()
 	{
 		
 	}
 	
-//	public void buy(Character buyer)
-//	{
-//		
-//	}
+	public void buy(Player buyer)
+	{
+		if(buyer.getGold() > value)
+		{
+			buyer.setGold(buyer.getGold() - value);
+			buyer.addLoot(this);
+		}
+	}
 	
-//	public int sell(Character seller)
-//	{
-//		
-//	}
+	public void sell(Player seller)
+	{
+		seller.removeLoot(this);
+		seller.setGold(seller.getGold() + this.value);
+	}
 }

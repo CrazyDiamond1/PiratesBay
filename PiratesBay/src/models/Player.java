@@ -25,5 +25,14 @@ public class Player extends Character {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	public void addLoot(Loot lootItem)
+	{
+		loot.add(lootItem);
+	}
 
+	public void removeLoot(Loot lootItem)
+	{
+		loot.remove(lootItem);
+	}
 }
