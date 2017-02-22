@@ -2,18 +2,19 @@ package models;
 
 public class Ship extends Loot
 {
-	private int SpeedMod;
+	private int speedMod;
 	
 	public Ship()
 	{
 		
+		speedMod = rand.nextInt(31);
 	}
 
 	public int getSpeedMod() {
-		return SpeedMod;
+		return speedMod;
 	}
 
 	public void setSpeedMod(int speedMod) {
-		SpeedMod = speedMod;
+		this.speedMod = speedMod;
 	}
 }
