@@ -11,6 +11,7 @@ public class Loot
 	
 	public Loot()
 	{
+		this.name = namePicker();
 		this.value = rand.nextInt(50) + 1;
 	}
 
@@ -43,5 +44,25 @@ public class Loot
 	{
 		seller.removeLoot(this);
 		seller.setGold(seller.getGold() + this.value);
+	}
+	
+	public String namePicker()
+	{
+		String[] names={
+			"Chairs",
+			"Wine",
+			"Swords",
+			"Copper",
+			"Rum",
+			"Lumber",
+			"Metal",
+			"Silk",
+			"Paper",
+			"Glass",
+			"Wheat"
+		};
+		int i = rand.nextInt(11);
+		
+		return names[i];
 	}
 }
