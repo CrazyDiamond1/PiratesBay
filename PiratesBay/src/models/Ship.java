@@ -6,8 +6,8 @@ public class Ship extends Loot
 	
 	public Ship()
 	{
-		
-		speedMod = rand.nextInt(31);
+		this.value = rand.nextInt(100) + 1;
+		this.speedMod = rand.nextInt(31);
 	}
 
 	public int getSpeedMod() {

@@ -11,7 +11,7 @@ public class Loot
 	
 	public Loot()
 	{
-		
+		this.value = rand.nextInt(50) + 1;
 	}
 	
 	public void buy(Player buyer)

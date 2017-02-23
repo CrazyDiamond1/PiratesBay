@@ -7,8 +7,8 @@ public class Equipment extends Loot
 	
 	public Equipment()
 	{
-		damageMod = rand.nextInt(100)+1;
-		speedMod = rand.nextInt(0)-30;
+		this.damageMod = rand.nextInt(100)+1;
+		this.speedMod = rand.nextInt(0)-30;
 	}
 
 	public int getDamageMod() {
