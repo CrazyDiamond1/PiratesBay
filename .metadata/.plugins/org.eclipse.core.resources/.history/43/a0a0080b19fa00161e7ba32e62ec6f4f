@@ -1,0 +1,31 @@
+package app;
+
+public class Engine {
+
+	public static void run()
+	{
+			
+		System.out.println("Welcome to PiratesBay!");
+		
+	}
+	
+	public static void combat()
+	{
+		
+	}
+	
+	public static void move()
+	{
+		
+	}
+	
+	public static void CharacterSelection(){
+		
+		
+	}
+	
+//	public static Character encounter()
+//	{
+//		
+//	}
+}

@@ -6,10 +6,33 @@ public class Player extends Character {
 
 	private HashMap<String, Loot> loot = new HashMap<>();
 	
-	public Player(String name, int crew) {
+	public Player(int selection, String name) {
 
+		Random randold = new Random();
 		setCaptainName(name);
+		System.out.println("Captain name: "+name);
+		//1 is easy
+		if(selection == 1){
+		int crew = randold.nextInt(50)+200;
 		setCrewCount(crew);
+		//temporary?
+		System.out.println("crew size: "+crew);
+		int gold = randold.nextInt(50)+50;
+		setGold(gold);
+		//temporary ?
+		System.out.println("gold size: "+gold);
+		setCrewCount(crew);
+		} else {
+			
+			int crew = 200;
+			setCrewCount(crew);
+			System.out.println("crew size: "+crew);
+			int gold = 50;
+			setGold(gold);
+			System.out.println("gold size: "+gold);
+		}
+		
+		
 	}
 
 	public HashMap<String, Loot> getLoot() {

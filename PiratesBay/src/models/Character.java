@@ -6,6 +6,8 @@ public abstract class Character {
 	protected int crewCount;
 	protected int gold;
 	protected int combatEff;
+	protected Ship ship;
+	protected Equipment equipment;
 		
 	public abstract void takeDamage(int damage);
 	public abstract int combatCalc();

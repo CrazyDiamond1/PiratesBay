@@ -1,0 +1,41 @@
+package UserInteraction;
+
+import java.io.*;
+
+public class UserInput {
+
+	public static void presetMenu(){
+		
+		
+	}
+	
+	public static int userResponseToMenu() {
+
+		BufferedReader readRacer = new BufferedReader(new InputStreamReader(System.in));
+		boolean isGoodResponse = false;
+		int choiceI = 0;
+		String choiceS;
+		do {
+			
+			try {
+
+				choiceS = readRacer.readLine();
+				choiceI = Integer.parseInt(choiceS);
+
+				if (choiceI <= 4 && choiceI > 0) {
+					isGoodResponse = true;
+				} else {
+					isGoodResponse = false;
+					System.out.println("Enter a valid option.");
+				}
+			} catch (NumberFormatException e) {
+				System.out.println("Enter a valid option.");
+				isGoodResponse = false;
+			} catch (IOException e) {
+
+			}
+		} while (!isGoodResponse);
+
+		return choiceI;
+	}
+}
