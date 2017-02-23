@@ -34,24 +34,13 @@ public class Player extends Character {
 			// temporary ?
 			System.out.println("gold size: " + gold);
 			setCrewCount(crew);
-		} else if (selection == 3) {
+		} else if (selection == 2) {
 
 			int crew = randold.nextInt(50) + 50;
 			setCrewCount(crew);
 			// temporary?
 			System.out.println("crew size: " + crew);
 			int gold = randold.nextInt(50) + 50;
-			setGold(gold);
-			// temporary ?
-			System.out.println("gold size: " + gold);
-			setCrewCount(crew);
-		} else if (selection == 4) {
-			
-			int crew = randold.nextInt(50) + 10;
-			setCrewCount(crew);
-			// temporary?
-			System.out.println("crew size: " + crew);
-			int gold = randold.nextInt(50) + 10;
 			setGold(gold);
 			// temporary ?
 			System.out.println("gold size: " + gold);

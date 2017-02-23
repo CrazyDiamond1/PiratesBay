@@ -10,8 +10,7 @@ public class Engine {
 	{
 			
 		System.out.println("Welcome to PiratesBay!");
-		//Difficulty is the int that's returned. Difficulty is derived from the preset.
-		int difficultySelection = characterSelection();
+		characterSelection();
 	}
 	
 	public static void combat()
