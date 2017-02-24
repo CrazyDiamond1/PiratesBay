@@ -79,7 +79,8 @@ public class Player extends Character {
 	@Override
 	public void takeDamage(int damage) {
 
-		setCrewCount(getCrewCount() - damage);
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override

@@ -80,6 +80,7 @@ public class Player extends Character {
 	public void takeDamage(int damage) {
 
 		setCrewCount(getCrewCount() - damage);
+
 	}
 
 	@Override

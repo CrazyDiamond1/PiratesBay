@@ -5,4 +5,5 @@
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="models.Player"/>
 <fullyQualifiedTypeName name="UserInteraction.UserInput"/>
+<fullyQualifiedTypeName name="models.Enemy"/>
 </qualifiedTypeNameHistroy>

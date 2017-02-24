@@ -1,6 +1,5 @@
 package app;
 
-import models.Enemy;
 import models.Player;
 
 public class Engine {
@@ -13,7 +12,6 @@ public class Engine {
 		System.out.println("Welcome to PiratesBay!");
 		//Difficulty is the int that's returned. Difficulty is derived from the preset.
 		int characterCrew = characterSelection();
-		generateEnemy(currentPlayer.getCrewCount());
 	}
 	
 	public static void combat()
@@ -34,12 +32,6 @@ public class Engine {
 		currentPlayer = new Player(selection, nameCaptain);
 		
 		return currentPlayer.getCrewCount();
-	}
-	
-	public static Enemy generateEnemy(int playerCrew){
-		
-		Enemy e = new Enemy(playerCrew);
-		return e;
 	}
 	
 //	public static Character encounter()
