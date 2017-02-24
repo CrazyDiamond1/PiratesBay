@@ -36,6 +36,7 @@ public class Engine {
 		return selection;
 	}
 	
+<<<<<<< Updated upstream
 	public static Enemy generateEnemy(int playerCrew, int selection){
 		
 		Enemy e = new Enemy(playerCrew, selection);
@@ -46,4 +47,10 @@ public class Engine {
 //	{
 //		
 //	}
+=======
+	public static void encounter()
+	{
+				
+	}
+>>>>>>> Stashed changes
 }
