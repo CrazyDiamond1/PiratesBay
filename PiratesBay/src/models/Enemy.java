@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Random;
+
 public class Enemy extends Character{
 
 	public Enemy(String name, int crew){
@@ -16,9 +18,8 @@ public class Enemy extends Character{
 
 	@Override
 	public int combatCalc() {
-		
-//		do Nothing
-		return 0;
+		Random rand = new Random();
+		return rand.nextInt(100) + 1;
 	}
 
 	
