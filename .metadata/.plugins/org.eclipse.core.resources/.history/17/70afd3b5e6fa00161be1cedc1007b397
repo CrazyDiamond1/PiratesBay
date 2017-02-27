@@ -36,9 +36,14 @@ public class Engine {
 		return selection;
 	}
 	
-	public static Enemy generateEnemy(int playerCrew, int difficultySelection){
+	public static Enemy generateEnemy(int playerCrew, int selection){
 		
-		Enemy e = new Enemy(playerCrew, difficultySelection);
+		Enemy e = new Enemy(playerCrew, selection);
 		return e;
 	}
+	
+//	public static Character encounter()
+//	{
+//		
+//	}
 }
