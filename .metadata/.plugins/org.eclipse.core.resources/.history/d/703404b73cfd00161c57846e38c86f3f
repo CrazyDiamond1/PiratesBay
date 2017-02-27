@@ -15,11 +15,7 @@ public class Enemy extends Character{
 		System.out.println(getCaptainName());
 		int crew = randold.nextInt(crewReference/2)+50;
 		setCrewCount(crew*difficulty);
-		setATK((int)(getCrewCount()*0.06));
-		setDEF(getATK());
-		System.out.println("Crew: "+getCrewCount());
-		System.out.println("ATK: "+getATK());
-		System.out.println("DEF: "+getDEF());
+		System.out.println(getCrewCount());
 	}
 	
 	@Override
@@ -27,4 +23,13 @@ public class Enemy extends Character{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int combatCalc() {
+		Random rand = new Random();
+		return rand.nextInt(100) + 1;
+	}
+
+	
+
 }

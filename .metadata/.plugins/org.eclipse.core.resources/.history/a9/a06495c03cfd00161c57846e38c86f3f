@@ -12,4 +12,11 @@ public class Native extends Character{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int combatCalc() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

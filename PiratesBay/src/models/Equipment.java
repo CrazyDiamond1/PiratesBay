@@ -36,8 +36,9 @@ public class Equipment extends Loot
 			"Grape Shot",
 			"Chain Shot",
 			"Heavy Shot",
+			"Respawining Watermelon",
 		};
-		int i = rand.nextInt(7);
+		int i = rand.nextInt(8);
 		
 		return names[i];
 	}
