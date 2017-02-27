@@ -2,32 +2,29 @@ package models;
 
 public class Equipment extends Loot
 {
-	private int damageMod;
-	private int speedMod;
+	private int ATKMod;
+	private int DEFMod;
 	
 	public Equipment()
 	{
 		this.name = namePicker();
-		this.damageMod = rand.nextInt(100)+1;
-		this.speedMod = rand.nextInt(0)-30;
-	}
-
-	public int getDamageMod() {
-		return damageMod;
-	}
-
-	public void setDamageMod(int damageMod) {
-		this.damageMod = damageMod;
-	}
-
-	public int getSpeedMod() {
-		return speedMod;
-	}
-
-	public void setSpeedMod(int speedMod) {
-		this.speedMod = speedMod;
+		this.ATKMod = rand.nextInt(100)+1;
+		this.DEFMod = rand.nextInt(0)-30;
 	}
 	
+	public int getATKMod() {
+		return ATKMod;
+	}
+	public void setATKMod(int aTKMod) {
+		ATKMod = aTKMod;
+	}
+	public int getDEFMod() {
+		return DEFMod;
+	}
+	public void setDEFMod(int dEFMod) {
+		DEFMod = dEFMod;
+	}
+
 	@Override
 	public String namePicker()
 	{

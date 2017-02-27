@@ -18,11 +18,18 @@ public class UserInput {
 	public static void combatMenu()
 	{
 		String[] choices ={
-				"Attack"
+				"Attack",
+				"Defend",
+				"Run"
 		};
+		
+		for(int i = 0; i < choices.length; i++)
+		{
+			System.out.println(++i + ") " + choices[i]);
+		}
 	}
 	
-	public static int userResponseToMenu() {
+	public static int userResponseToMenu(int numOfItems) {
 
 		BufferedReader readRacer = new BufferedReader(new InputStreamReader(System.in));
 		boolean isGoodResponse = false;
@@ -35,7 +42,7 @@ public class UserInput {
 				choiceS = readRacer.readLine();
 				choiceI = Integer.parseInt(choiceS);
 
-				if (choiceI <= 4 && choiceI > 0) {
+				if (choiceI <= numOfItems && choiceI > 0) {
 					isGoodResponse = true;
 				} else {
 					isGoodResponse = false;
