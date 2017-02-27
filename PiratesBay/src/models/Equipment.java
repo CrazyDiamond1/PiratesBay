@@ -8,8 +8,8 @@ public class Equipment extends Loot
 	public Equipment()
 	{
 		this.name = namePicker();
-		this.ATKMod = rand.nextInt(100)+1;
-		this.DEFMod = rand.nextInt(0)-30;
+		this.ATKMod = rand.nextInt(30) + 1;
+		this.DEFMod = rand.nextInt(30) + 1;
 	}
 	
 	public int getATKMod() {

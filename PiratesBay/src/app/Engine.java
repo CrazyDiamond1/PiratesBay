@@ -28,21 +28,28 @@ public class Engine {
 		
 		int enemyChoice = rand.nextInt(2) + 1;
 		
-		calcCombatResult(playerChoice, enemyChoice);
+		Enemy enemy = generateEnemy(currentPlayer.getCrewCount(), 1);
+		
+		calcCombatResult(playerChoice, enemyChoice, enemy);
+		
+		if(enemy.getCrewCount() <= 0)
+		{
+			
+		}
+		else
+		{
+			
+		}
 	}
 	
-	public static void calcCombatResult(int playerChoice, int enemyChoice)
+	public static void calcCombatResult(int playerChoice, int enemyChoice, Enemy enemy)
 	{
 		boolean escaped;
 		if(playerChoice == 3)
 		{
 			if(enemyChoice == 1)
 			{
-				
-			}
-			else
-			{
-				
+				currentPlayer.setCrewCount(currentPlayer.getCrewCount() - enemy.getATK());
 			}
 			
 			escaped = rand.nextBoolean();
@@ -51,19 +58,21 @@ public class Engine {
 		{
 			if(playerChoice == 1 && enemyChoice == 1)
 			{
-				
+				currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (enemy.getATK()/2));
+				enemy.setCrewCount(enemy.getCrewCount() - (currentPlayer.getATK()/2));
 			}
 			else if(playerChoice == 2 && enemyChoice == 2)
 			{
-				
+				currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (enemy.getDEF()/3));
+				enemy.setCrewCount(enemy.getCrewCount() - (currentPlayer.getDEF()/3));
 			}
 			else if(playerChoice == 1 && enemyChoice == 2)
 			{
-				
+				enemy.setCrewCount(enemy.getCrewCount() - (currentPlayer.getATK()-enemy.getDEF()));
 			}
 			else if(playerChoice == 2 && enemyChoice == 1)
 			{
-				
+				currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (enemy.getATK()-currentPlayer.getDEF()));
 			}
 		}
 	}
@@ -83,9 +92,9 @@ public class Engine {
 		return selection;
 	}
 	
-	public static Enemy generateEnemy(int playerCrew, int difficultySelection){
+	public static Enemy generateEnemy(int crewReference, int difficulty){
 		
-		Enemy e = new Enemy(playerCrew, difficultySelection);
+		Enemy e = new Enemy(crewReference, difficulty);
 		return e;
 	}
 	
@@ -94,6 +103,10 @@ public class Engine {
 		for(int i = 0; i < 10; i++){
 		
 			Enemy e = new Enemy(crewReference, difficulty);
+			System.out.println("Captain: " + e.getCaptainName());
+			System.out.println("Crew: "+ e.getCrewCount());
+			System.out.println("ATK: "+ e.getATK());
+			System.out.println("DEF: "+ e.getDEF());
 		}
 	}
 }

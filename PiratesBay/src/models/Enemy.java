@@ -14,7 +14,7 @@ public class Enemy extends Character {
 		int nameSel = randold.nextInt(20);
 		String name = names[nameSel]; 
 		setCaptainName(name);
-		System.out.println(getCaptainName());
+//		System.out.println(getCaptainName());
 		int crew = randold.nextInt(crewReference/2)+50;
 		setCrewCount(crew*difficulty);
 		if(difficulty == 1){
@@ -39,9 +39,9 @@ public class Enemy extends Character {
 		}
 		
 		setDEF(getATK());
-		System.out.println("Crew: "+getCrewCount());
-		System.out.println("ATK: "+getATK());
-		System.out.println("DEF: "+getDEF()+"\n");
+//		System.out.println("Crew: "+getCrewCount());
+//		System.out.println("ATK: "+getATK());
+//		System.out.println("DEF: "+getDEF());
 	}
 
 	@Override
