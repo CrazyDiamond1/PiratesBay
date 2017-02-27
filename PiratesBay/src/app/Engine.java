@@ -1,5 +1,6 @@
 package app;
 
+import UserInteraction.UserInput;
 import models.Enemy;
 import models.Player;
 
@@ -17,6 +18,11 @@ public class Engine {
 	}
 	
 	public static void combat()
+	{
+		
+	}
+	
+	public static void calcCombatResult(int playerChoice, int enemyChoice)
 	{
 		
 	}

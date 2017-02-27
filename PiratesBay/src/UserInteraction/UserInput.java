@@ -15,6 +15,13 @@ public class UserInput {
 		}
 	}
 	
+	public static void combatMenu()
+	{
+		String[] choices ={
+				"Attack"
+		};
+	}
+	
 	public static int userResponseToMenu() {
 
 		BufferedReader readRacer = new BufferedReader(new InputStreamReader(System.in));
