@@ -3,9 +3,10 @@ package models;
 public abstract class Character {
 
 	protected String captainName;
+	protected int ATK;
+	protected int DEF;
 	protected int crewCount;
 	protected int gold;
-	protected int combatEff;
 	protected Ship ship;
 	protected Equipment equipment;
 		
@@ -36,14 +37,16 @@ public abstract class Character {
 		
 		this.gold = gold;
 	}
-	public int getCombatEff() {
-		
-		return combatEff;
+	public int getATK() {
+		return ATK;
 	}
-	public void setCombatEff(int combatEff) {
-		
-		this.combatEff = combatEff;
+	public void setATK(int aTK) {
+		ATK = aTK;
 	}
-	
-	
+	public int getDEF() {
+		return DEF;
+	}
+	public void setDEF(int dEF) {
+		DEF = dEF;
+	}
 }
