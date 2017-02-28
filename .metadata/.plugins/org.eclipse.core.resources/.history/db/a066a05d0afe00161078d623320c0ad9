@@ -5,7 +5,7 @@ import java.util.*;
 public class Player extends Character {
 
 	private HashMap<String, Loot> loot = new HashMap<>();
-	
+
 	public Player(int selection, String name) {
 
 		Random randold = new Random();

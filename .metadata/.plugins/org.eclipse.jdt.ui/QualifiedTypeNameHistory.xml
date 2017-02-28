@@ -3,8 +3,8 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="models.Player"/>
 <fullyQualifiedTypeName name="models.Enemy"/>
 <fullyQualifiedTypeName name="models.Island"/>
 <fullyQualifiedTypeName name="UserInteraction.UserInput"/>
+<fullyQualifiedTypeName name="models.Player"/>
 </qualifiedTypeNameHistroy>
