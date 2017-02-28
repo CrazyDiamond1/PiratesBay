@@ -18,33 +18,60 @@ public class Engine {
 		//Difficulty is the int that's returned. Difficulty is derived from the preset.
 		int characterDifficulty = characterSelection();
 //		generateEnemy(currentPlayer.getCrewCount(), characterDifficulty);
-		createEnemiesForTestingValues(currentPlayer.getCrewCount(), characterDifficulty);
+//		createEnemiesForTestingValues(currentPlayer.getCrewCount(), characterDifficulty);
+	
+		combat();
 	}
 	
 	public static void combat()
 	{	
-		UserInput.combatMenu();
-		int playerChoice = UserInput.userResponseToMenu(3);
-		
-		int enemyChoice = rand.nextInt(2) + 1;
-		
 		Enemy enemy = generateEnemy(currentPlayer.getCrewCount(), 1);
 		
-		calcCombatResult(playerChoice, enemyChoice, enemy);
-		
-		if(enemy.getCrewCount() <= 0)
-		{
+		boolean playerWon = false;
+		boolean endCombat = false;
+		do{
+			UserInput.combatMenu();
+			int playerChoice = UserInput.userResponseToMenu(3);
+			System.out.println("you chose: " + playerChoice);
 			
+			int enemyChoice = rand.nextInt(2) + 1;
+			System.out.println("Enemy chose: " + enemyChoice);
+			
+			endCombat =calcCombatResult(playerChoice, enemyChoice, enemy);
+			
+			System.out.println(currentPlayer.getCaptainName() + "\n" + currentPlayer.getCrewCount() + "\n--------------------");
+			System.out.println(enemy.getCaptainName() + "\n" + enemy.getCrewCount() + "\n---------------------");
+			
+			if(!endCombat)
+			{
+				if(enemy.getCrewCount() <= 0)
+				{
+					endCombat = true;
+					playerWon = true;
+				}
+				
+				if(currentPlayer.getCrewCount() <=0)
+				{
+					endCombat = true;
+					playerWon = false;
+				}
+			}
+		}while(!endCombat);
+		
+		if(playerWon)
+		{
+			System.out.println("Yay you win!");
 		}
 		else
 		{
-			
+			System.out.println("NOOOOOOOOO! you lose :(");
 		}
+		
 	}
 	
-	public static void calcCombatResult(int playerChoice, int enemyChoice, Enemy enemy)
+	public static boolean calcCombatResult(int playerChoice, int enemyChoice, Enemy enemy)
 	{
-		boolean escaped;
+		boolean escaped = false;
 		if(playerChoice == 3)
 		{
 			if(enemyChoice == 1)
@@ -75,6 +102,8 @@ public class Engine {
 				currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (enemy.getATK()-currentPlayer.getDEF()));
 			}
 		}
+		
+		return escaped;
 	}
 	
 	public static void move()
