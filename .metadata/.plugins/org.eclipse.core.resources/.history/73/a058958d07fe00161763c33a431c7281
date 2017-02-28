@@ -14,8 +14,8 @@ public class Player extends Character {
 		// 1 is easy
 		if (selection == 1) {
 
-			setATK(20);
-			setDEF(20);
+			setATK(10);
+			setDEF(10);
 			int crew = randold.nextInt(50) + 200;
 			setCrewCount(crew);
 			// temporary?
@@ -27,8 +27,8 @@ public class Player extends Character {
 			setCrewCount(crew);
 		} else if (selection == 2) {
 
-			setATK(16);
-			setDEF(16);
+			setATK(8);
+			setDEF(8);
 			int crew = randold.nextInt(50) + 100;
 			setCrewCount(crew);
 			// temporary?
@@ -40,8 +40,8 @@ public class Player extends Character {
 			setCrewCount(crew);
 		} else if (selection == 3) {
 
-			setATK(12);
-			setDEF(12);
+			setATK(6);
+			setDEF(6);
 			int crew = randold.nextInt(50) + 50;
 			setCrewCount(crew);
 			// temporary?
@@ -53,8 +53,8 @@ public class Player extends Character {
 			setCrewCount(crew);
 		} else if (selection == 4) {
 			
-			setATK(8);
-			setDEF(8);
+			setATK(4);
+			setDEF(4);
 			int crew = randold.nextInt(50) + 10;
 			setCrewCount(crew);
 			// temporary?
@@ -66,8 +66,8 @@ public class Player extends Character {
 			setCrewCount(crew);
 		} else {
 
-			setATK(20);
-			setDEF(20);
+			setATK(10);
+			setDEF(10);
 			int crew = 200;
 			setCrewCount(crew);
 			System.out.println("Default crew size: " + crew);

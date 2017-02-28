@@ -133,70 +133,70 @@ public abstract class Island {
 
 			case 1:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(1)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(1)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(1)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(1)).getName(), player.getLoot().get(itemNames.get(1)));
 				break;
 
 			case 2:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(2)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(2)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(2)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(2)).getName(), player.getLoot().get(itemNames.get(2)));
 				break;
 
 			case 3:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(3)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(3)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(3)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(3)).getName(), player.getLoot().get(itemNames.get(3)));
 				break;
 
 			case 4:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(4)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(4)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(4)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(4)).getName(), player.getLoot().get(itemNames.get(4)));
 				break;
 
 			case 5:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(5)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(5)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(5)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(5)).getName(), player.getLoot().get(itemNames.get(5)));
 				break;
 
 			case 6:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(6)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(6)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(6)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(6)).getName(), player.getLoot().get(itemNames.get(6)));
 				break;
 
 			case 7:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(7)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(7)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(7)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(7)).getName(), player.getLoot().get(itemNames.get(7)));
 				break;
 
 			case 8:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(8)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(8)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(8)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(8)).getName(), player.getLoot().get(itemNames.get(8)));
 				break;
 
 			case 9:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(9)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(9)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(9)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(9)).getName(), player.getLoot().get(itemNames.get(9)));
 				break;
 
 			case 10:
 
-				player.setGold(player.getGold() + player.getLoot().get(itemNames.get(10)).getValue());
+				player.setGold(player.getGold() - player.getLoot().get(itemNames.get(10)).getValue());
 				player.getLoot().remove(player.getLoot().get(itemNames.get(10)).getName());
 				player.getLoot().put(player.getLoot().get(itemNames.get(10)).getName(), player.getLoot().get(itemNames.get(10)));
 				break;

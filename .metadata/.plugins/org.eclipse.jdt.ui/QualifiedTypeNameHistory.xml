@@ -4,6 +4,7 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="models.Player"/>
-<fullyQualifiedTypeName name="UserInteraction.UserInput"/>
 <fullyQualifiedTypeName name="models.Enemy"/>
+<fullyQualifiedTypeName name="models.Island"/>
+<fullyQualifiedTypeName name="UserInteraction.UserInput"/>
 </qualifiedTypeNameHistroy>
