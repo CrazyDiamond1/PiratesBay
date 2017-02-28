@@ -46,7 +46,6 @@ public class Enemy extends Character {
 
 	@Override
 	public void takeDamage(int damage) {
-		// TODO Auto-generated method stub
-
+		setCrewCount(getCrewCount() - damage);
 	}
 }

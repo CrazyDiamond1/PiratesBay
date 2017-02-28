@@ -76,7 +76,7 @@ public class Engine {
 		{
 			if(enemyChoice == 1)
 			{
-				currentPlayer.setCrewCount(currentPlayer.getCrewCount() - enemy.getATK());
+				currentPlayer.takeDamage(enemy.getATK());
 			}
 			
 			escaped = rand.nextBoolean();
@@ -85,21 +85,21 @@ public class Engine {
 		{
 			if(playerChoice == 1 && enemyChoice == 1)
 			{
-				currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (enemy.getATK()/2));
-				enemy.setCrewCount(enemy.getCrewCount() - (currentPlayer.getATK()/2));
+				currentPlayer.takeDamage(enemy.getATK()*2);
+				enemy.takeDamage(currentPlayer.getATK()*2);
 			}
 			else if(playerChoice == 2 && enemyChoice == 2)
 			{
-				currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (enemy.getDEF()/3));
-				enemy.setCrewCount(enemy.getCrewCount() - (currentPlayer.getDEF()/3));
+				currentPlayer.takeDamage(enemy.getDEF()/3);
+				enemy.takeDamage(currentPlayer.getDEF()/3);
 			}
 			else if(playerChoice == 1 && enemyChoice == 2)
 			{
-				enemy.setCrewCount(enemy.getCrewCount() - (currentPlayer.getATK()-enemy.getDEF()));
+				enemy.takeDamage(currentPlayer.getATK() - enemy.getDEF());
 			}
 			else if(playerChoice == 2 && enemyChoice == 1)
 			{
-				currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (enemy.getATK()-currentPlayer.getDEF()));
+				currentPlayer.takeDamage(enemy.getATK() - currentPlayer.getDEF());
 			}
 		}
 		
