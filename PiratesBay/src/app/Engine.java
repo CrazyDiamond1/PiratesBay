@@ -13,7 +13,6 @@ public class Engine {
 	
 	public static void run()
 	{
-			
 		System.out.println("Welcome to PiratesBay!");
 		//Difficulty is the int that's returned. Difficulty is derived from the preset.
 		int characterDifficulty = characterSelection();
@@ -37,7 +36,7 @@ public class Engine {
 			int enemyChoice = rand.nextInt(2) + 1;
 			System.out.println("Enemy chose: " + enemyChoice);
 			
-			endCombat =calcCombatResult(playerChoice, enemyChoice, enemy);
+			endCombat = calcCombatResult(playerChoice, enemyChoice, enemy);
 			
 			System.out.println(currentPlayer.getCaptainName() + "\n" + currentPlayer.getCrewCount() + "\n--------------------");
 			System.out.println(enemy.getCaptainName() + "\n" + enemy.getCrewCount() + "\n---------------------");

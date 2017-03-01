@@ -129,4 +129,19 @@ public class UserInput {
 		} while (bool);
 		return input;
 	}
+	
+	public void displayMap()
+	{
+		
+	}
+
+	public void displayCombat()
+	{
+		
+	}
+	
+	public void displayIsland()
+	{
+		
+	}	
 }
