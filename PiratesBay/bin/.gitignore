@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-/models/
-=======
->>>>>>> Stashed changes
-/app/
 /UserInteraction/
+/app/
+/models/

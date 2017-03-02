@@ -212,18 +212,24 @@ public abstract class Island {
 		}
 	}
 
-	public int beingRaided(Character player) {
+	public int raid(Character player) {
 
+		
+		
 		return 0;
 	}
 
-	public boolean beingAttacked() {
-
-		return false;
+	public void attack() {
+		
+		setOwned(true);
 	}
 
-	public void recruit() {
+	public int recruit(Character player) {
 
+		int numOfNatives = player.getCrewCount()/3;
+		player.setCrewCount(player.getCrewCount()+numOfNatives);
+		
+		return numOfNatives;
 	}
 
 	public boolean isOwned() {
