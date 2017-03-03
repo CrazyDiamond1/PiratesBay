@@ -2,13 +2,16 @@ package models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import UserInteraction.UserInput;
 
 public class Island 
 {
+	Random rand = new Random();
 	private HashMap<String, Loot> buyables = new HashMap<>();
 	private boolean isOwned;
+	private boolean raided = false;
 	private String name;
 	
 	int i = 0;
@@ -28,7 +31,8 @@ public class Island
 
 	public Island()
 	{
-		name = names[i++];
+		
+		name = names[rand.nextInt(11)];
 	}
 	
 	public void buyItem(Player player) {
@@ -266,4 +270,14 @@ public class Island
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public boolean isRaided() {
+		return raided;
+	}
+
+	public void setRaided(boolean raided) {
+		this.raided = raided;
+	}
+	
+	
 }

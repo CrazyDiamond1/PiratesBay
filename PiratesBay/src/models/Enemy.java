@@ -20,25 +20,25 @@ public class Enemy extends Character
 		if(difficulty == 1){
 			
 			int atkVal = randold.nextInt(5)+6;
-			setATK(atkVal);
+			setATK(atkVal, 0);
 		} else if(difficulty == 2){
 			
 			int atkVal = randold.nextInt(5)+11;
-			setATK(atkVal);
+			setATK(atkVal, 0);
 		} else if(difficulty == 3){
 			
 			int atkVal = randold.nextInt(5)+16;
-			setATK(atkVal);
+			setATK(atkVal, 0);
 		} else if(difficulty == 4){
 			
 			int atkVal = randold.nextInt(5)+26;
-			setATK(atkVal);
+			setATK(atkVal, 0);
 		} else{
 			int atkVal = randold.nextInt(5)+6;
-			setATK(2);
+			setATK(2, 0);
 		}
 		
-		setDEF(getATK());
+		setDEF(getATK(), 0);
 //		System.out.println("Crew: "+getCrewCount());
 //		System.out.println("ATK: "+getATK());
 //		System.out.println("DEF: "+getDEF());

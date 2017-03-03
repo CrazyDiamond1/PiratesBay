@@ -143,7 +143,7 @@ public class UserInput
 			"Retire"
 		};
 		
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
+		System.out.println("\n\n\n\n\n\n\n\n\n");
 		System.out.println("What would you like to do?");
 		for(int i = 0; i < choices.length; i++)
 		{
@@ -151,7 +151,7 @@ public class UserInput
 		}
 	}
 
-	public static void displayIslands(HashMap<String, Island> islands)
+	public static String[] displayIslands(HashMap<String, Island> islands)
 	{
 		String[] islandChoices = new String[islands.size()];
 		islands.keySet().toArray(islandChoices);
@@ -161,6 +161,11 @@ public class UserInput
 		{
 			System.out.println((i+1) + ") " + islandChoices[i]);
 		}
+		
+		String[] islandNames = new String[10];
+		islands.keySet().toArray(islandNames);
+		
+		return islandNames;
 	}
 	
 	public static void displayIsland()

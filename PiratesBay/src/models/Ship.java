@@ -12,6 +12,14 @@ public class Ship extends Loot
 		this.speedMod = rand.nextInt(30) + 1;
 		this.DEFMod = rand.nextInt(30) + 1;
 	}
+	
+	public Ship(int s, int d, String name, int value)
+	{
+		this.name = name;
+		this.speedMod = s;
+		this.DEFMod = d;
+		this.value = value;
+	}
 
 	public int getSpeedMod() {
 		return speedMod;

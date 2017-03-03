@@ -39,13 +39,13 @@ public abstract class Character
 	public int getATK() {
 		return ATK;
 	}
-	public void setATK(int aTK) {
-		ATK = aTK;
+	public void setATK(int aTK, int atkMod) {
+		ATK = aTK + atkMod;
 	}
 	public int getDEF() {
 		return DEF;
 	}
-	public void setDEF(int dEF) {
-		DEF = dEF;
+	public void setDEF(int dEF, int defMod) {
+		DEF = dEF + defMod;
 	}
 }

@@ -34,8 +34,9 @@ public class Engine
 			}
 			else if(choice == 2)
 			{
-				UserInput.displayIslands(islands);
+				String[] islandNames = UserInput.displayIslands(islands);
 				int islandChoice = UserInput.userResponseToMenu(islands.size());
+				
 				
 				if((rand.nextInt(100)+1) > 75)
 				{
@@ -43,7 +44,7 @@ public class Engine
 					combat();
 				}
 				
-				move();
+				move(islands.get(islandNames[islandChoice]));
 			}
 			else if(choice == 3)
 			{
@@ -140,8 +141,10 @@ public class Engine
 		return escaped;
 	}
 	
-	public static void move()
+	public static void move(Island landedIsland)
 	{
+		landedIsland.setRaided(rand.nextBoolean());
+		
 		boolean isValid = false;
 		do{
 			UserInput.displayIsland();
@@ -153,13 +156,22 @@ public class Engine
 				combat();
 				break;
 			case 2:
-				System.out.println("Taking Loot........\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-				
-				int numOfLoot = rand.nextInt(5) + 1;
-				
-				for(int i = 0; i < numOfLoot; i++)
+				if(!landedIsland.isRaided())
 				{
-					currentPlayer.addLoot(new Loot());
+					System.out.println("Taking Loot........\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+					
+					int numOfLoot = rand.nextInt(5) + 1;
+					
+					for(int i = 0; i < numOfLoot; i++)
+					{
+						currentPlayer.addLoot(new Loot());
+					}
+					
+					landedIsland.setRaided(true);
+				}
+				else
+				{
+					System.out.println("This island has been raided recently.");
 				}
 				break;
 			case 3:
@@ -197,8 +209,10 @@ public class Engine
 	
 	public static void generateIslands()
 	{
-		Island island = new Island();
-		islands.put(island.getName(), island);
+		for(int i = 0; i < 10; i++)
+		{
+			islands.put(new Island().getName(), new Island());
+		}
 	}
 	
 	public static void generateLoot()
