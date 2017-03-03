@@ -42,5 +42,4 @@ public class Equipment extends Loot
 		
 		return names[i];
 	}
-	
 }

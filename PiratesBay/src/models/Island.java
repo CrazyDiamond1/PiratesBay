@@ -1,16 +1,36 @@
 package models;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import UserInteraction.UserInput;
 
-public abstract class Island {
-
+public class Island 
+{
 	private HashMap<String, Loot> buyables = new HashMap<>();
 	private boolean isOwned;
+	private String name;
+	
+	int i = 0;
+	private String[] names = {
+			"Tortuga",
+			"Cuba",
+			"Puerto Rico",
+			"Port Royal",
+			"Ravens Cove",
+			"Rambleshack",
+			"Isla Cruces",
+			"Isla de Muerta",
+			"Isla de Pelegosto",
+			"Shipwreck Cove",
+			"Black Pearl Island"
+	};
 
-	// changed from "Returns Loot" to "Returns Void"
-
+	public Island()
+	{
+		name = names[i++];
+	}
+	
 	public void buyItem(Player player) {
 
 		System.out.println("Ready to buy some things?");
@@ -111,7 +131,6 @@ public abstract class Island {
 		}
 	}
 
-	// changed from "Returns int" to "Returns Void"
 	public void sellItem(Player player) {
 
 		System.out.println("Ready to sell some things?");
@@ -240,4 +259,11 @@ public abstract class Island {
 		this.isOwned = isOwned;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

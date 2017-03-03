@@ -1,7 +1,7 @@
 package models;
 
-public abstract class Character {
-
+public abstract class Character 
+{
 	protected String captainName;
 	protected int ATK;
 	protected int DEF;

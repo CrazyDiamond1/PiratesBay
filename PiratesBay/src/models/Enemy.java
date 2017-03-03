@@ -2,8 +2,8 @@ package models;
 
 import java.util.Random;
 
-public class Enemy extends Character {
-
+public class Enemy extends Character
+{
 	private String[] names = { "Bob", "Randy", "Red Beard", "Black Beard", "Blue Beard", "One Beard", "Two Beard",
 			"Jack", "Barbossa", "Jones", "Long Larry", "Foggy Freddy", "Thirsty Theo", "Salty Sam", "Bard Barry",
 			"Davy", "K'nuckles", "Flapjack", "Bubby", "Peppermint Larry" };
@@ -47,5 +47,21 @@ public class Enemy extends Character {
 	@Override
 	public void takeDamage(int damage) {
 		setCrewCount(getCrewCount() - damage);
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder("Captains Name: ");
+		
+		sb.append(captainName);
+		sb.append("\nCrew: ");
+		sb.append(this.getCrewCount());
+		sb.append("\nATK: ");
+		sb.append(this.getATK());
+		sb.append("\nDEF: ");
+		sb.append(this.getDEF());
+		
+		return sb.toString();
 	}
 }

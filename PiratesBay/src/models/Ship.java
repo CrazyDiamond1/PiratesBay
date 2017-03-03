@@ -1,6 +1,6 @@
 package models;
 
-public class Ship extends Loot
+public class Ship extends Loot 
 {
 	private int speedMod;
 	private int DEFMod;

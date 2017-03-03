@@ -1,26 +1,30 @@
 package UserInteraction;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
 
 import models.Island;
 import models.Player;
 
-public class UserInput {
-
+public class UserInput 
+{
 	public static void presetMenu(){
 		
-		String[] presets = {"Easy - Crew Size (200 - 250), Gold (50 - 100)", "Medium - Crew Size (100 - 150), Gold (50 - 100)", "Hard - Crew Size (50 - 100), Gold (50 - 100)", "Lunatic - Crew Size (10 - 50), Gold (10 - 50)"};
+		String[] presets = {"Easy", "Medium", "Hard", "Lunatic"};
 		int i = 0;
+		System.out.println("Please pick a dificulty to begin play.");
 		for(String preset : presets){
 			
 			i++;
-			System.out.println(i +") "+preset);
+			System.out.println(i +") " + preset);
 		}
 	}
 	
 	public static void islandMenu(Island isle, Player p){
 		
-		String[] actions = {"Buy", "Sell", "Raid", "Attack", ""};
+		String[] actions = {"Buy", "Sell", "Raid", "Attack"};
 		
 		int choice = -1;
 		int counter = 0;
@@ -130,18 +134,49 @@ public class UserInput {
 		return input;
 	}
 	
-	public void displayMap()
+	public static void displayMainScreen()
 	{
+		String[] choices ={
+			"Pick a fight",
+			"Travel to an Island",
+			"Check Inventory",
+			"Retire"
+		};
 		
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
+		System.out.println("What would you like to do?");
+		for(int i = 0; i < choices.length; i++)
+		{
+			System.out.println((i+1) + ") " + choices[i]);
+		}
 	}
 
-	public void displayCombat()
+	public static void displayIslands(HashMap<String, Island> islands)
 	{
+		String[] islandChoices = new String[islands.size()];
+		islands.keySet().toArray(islandChoices);
 		
+		System.out.println("Which island do you wish to travel to?");
+		for(int i = 0; i < islandChoices.length; i++)
+		{
+			System.out.println((i+1) + ") " + islandChoices[i]);
+		}
 	}
 	
-	public void displayIsland()
+	public static void displayIsland()
 	{
+		String[] menu = {
+				"Attack",
+				"Raid",
+				"Buy Loot",
+				"Sell Loot",
+				"Leave"
+		};
 		
-	}	
+		System.out.println("What do you wish to do on this island?");
+		for(int i = 0; i < menu.length; i++)
+		{
+			System.out.println((i+1) + ") " + menu[i]);
+		}
+	}
 }

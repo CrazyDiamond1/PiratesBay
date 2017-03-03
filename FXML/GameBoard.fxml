@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Engine.java">
    <children>
       <MenuBar blendMode="MULTIPLY" layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
         <menus>
@@ -41,7 +41,7 @@
             <Image url="@Images/TableTop.jpt.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutY="25.0" prefHeight="475.0" prefWidth="600.0" visible="false">
+      <AnchorPane layoutY="25.0" prefHeight="475.0" prefWidth="600.0">
          <children>
             <ImageView fitHeight="475.0" fitWidth="600.0" pickOnBounds="true">
                <image>
@@ -109,11 +109,11 @@
             </TabPane>
          </children>
       </AnchorPane>
-      <ImageView fx:id="Map" fitHeight="475.0" fitWidth="600.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Map" fitHeight="475.0" fitWidth="600.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@Images/Map.png" />
          </image></ImageView>
-      <GridPane fx:id="Map" layoutY="25.0" prefHeight="475.0" prefWidth="600.0">
+      <GridPane fx:id="Map" layoutY="27.0" prefHeight="475.0" prefWidth="600.0" visible="false">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -309,7 +309,7 @@
                   </AnchorPane>
               </content>
             </Tab>
-          <Tab disable="true" text="Combat">
+          <Tab text="Combat">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

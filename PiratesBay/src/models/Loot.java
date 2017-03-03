@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Loot 
 {
-	protected Random rand = new Random();
+protected Random rand = new Random();
 	
 	protected String name;
 	protected int value;
@@ -64,5 +64,18 @@ public class Loot
 		int i = rand.nextInt(11);
 		
 		return names[i];
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder("Name: ");
+		
+		sb.append(this.getName());
+		sb.append("\nValue: ");
+		sb.append(this.getValue());
+		sb.append("\n------------");
+		
+		return sb.toString();
 	}
 }

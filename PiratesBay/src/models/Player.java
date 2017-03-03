@@ -1,71 +1,60 @@
 package models;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Random;
 
-public class Player extends Character {
-
+public class Player extends Character
+{
 	private HashMap<String, Loot> loot = new HashMap<>();
 	
 	public Player(int selection, String name) {
 
 		Random randold = new Random();
 		setCaptainName(name);
-		System.out.println("Captain name: " + name);
 		// 1 is easy
-		if (selection == 1) {
-
+		if (selection == 1) 
+		{
 			setATK(20);
 			setDEF(20);
 			int crew = randold.nextInt(50) + 200;
 			setCrewCount(crew);
-			// temporary?
-			System.out.println("crew size: " + crew);
 			int gold = randold.nextInt(50) + 50;
 			setGold(gold);
-			// temporary ?
-			System.out.println("gold size: " + gold);
 			setCrewCount(crew);
-		} else if (selection == 2) {
-
+		} 
+		else if (selection == 2) 
+		{
 			setATK(16);
 			setDEF(16);
 			int crew = randold.nextInt(50) + 100;
 			setCrewCount(crew);
-			// temporary?
-			System.out.println("crew size: " + crew);
 			int gold = randold.nextInt(50) + 50;
 			setGold(gold);
-			// temporary ?
-			System.out.println("gold size: " + gold);
 			setCrewCount(crew);
-		} else if (selection == 3) {
-
+		} 
+		else if (selection == 3) 
+		{
 			setATK(12);
 			setDEF(12);
 			int crew = randold.nextInt(50) + 50;
 			setCrewCount(crew);
-			// temporary?
-			System.out.println("crew size: " + crew);
 			int gold = randold.nextInt(50) + 50;
 			setGold(gold);
-			// temporary ?
-			System.out.println("gold size: " + gold);
 			setCrewCount(crew);
-		} else if (selection == 4) {
+		} 
+		else if (selection == 4) 
+		{
 			
 			setATK(8);
 			setDEF(8);
 			int crew = randold.nextInt(50) + 10;
 			setCrewCount(crew);
-			// temporary?
-			System.out.println("crew size: " + crew);
 			int gold = randold.nextInt(50) + 10;
 			setGold(gold);
-			// temporary ?
-			System.out.println("gold size: " + gold);
 			setCrewCount(crew);
-		} else {
-
+		} 
+		else 
+		{
 			setATK(20);
 			setDEF(20);
 			int crew = 200;
@@ -98,5 +87,24 @@ public class Player extends Character {
 
 	public void removeLoot(Loot lootItem) {
 		loot.remove(lootItem.getName());
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder("Captains Name: ");
+		
+		sb.append(captainName);
+		sb.append("\nCrew: ");
+		sb.append(this.getCrewCount());
+		sb.append("\nATK: ");
+		sb.append(this.getATK());
+		sb.append("\nDEF: ");
+		sb.append(this.getDEF());
+		sb.append("\nGold: ");
+		sb.append(this.getGold());
+		
+		return sb.toString();
+		
 	}
 }
