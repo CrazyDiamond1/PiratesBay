@@ -10,7 +10,7 @@ public class Island
 {
 	Random rand = new Random();
 	private HashMap<String, Loot> buyables = new HashMap<>();
-	private boolean isOwned;
+	private boolean isOwned = false;
 	private boolean raided = false;
 	private String name;
 	
@@ -31,7 +31,7 @@ public class Island
 
 	public Island()
 	{
-		
+		raided = false;
 		name = names[rand.nextInt(11)];
 	}
 	

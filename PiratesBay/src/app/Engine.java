@@ -143,52 +143,107 @@ public class Engine
 	
 	public static void move(Island landedIsland)
 	{
-		landedIsland.setRaided(rand.nextBoolean());
+		if(rand.nextBoolean())
+		{
+			landedIsland.setRaided(false);
+		}
 		
-		boolean isValid = false;
-		do{
-			UserInput.displayIsland();
-			int menuChoice = UserInput.userResponseToMenu(5);
-			
-			switch(menuChoice)
-			{
-			case 1:
-				combat();
-				break;
-			case 2:
-				if(!landedIsland.isRaided())
+		if(landedIsland.isOwned())
+		{
+			boolean isValid = false;
+			do{
+				UserInput.displayOwnedIsland();
+				int menuChoice = UserInput.userResponseToMenu(6);
+				
+				switch(menuChoice)
 				{
-					System.out.println("Taking Loot........\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-					
-					int numOfLoot = rand.nextInt(5) + 1;
-					
-					for(int i = 0; i < numOfLoot; i++)
+				case 1:
+					if(!landedIsland.isRaided())
 					{
-						currentPlayer.addLoot(new Loot());
+						System.out.println("Taking Loot........\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+						
+						int numOfLoot = rand.nextInt(5) + 1;
+						
+						for(int i = 0; i < numOfLoot; i++)
+						{
+							currentPlayer.addLoot(new Loot());
+						}
+						
+						landedIsland.setRaided(true);
 					}
-					
-					landedIsland.setRaided(true);
+					else
+					{
+						System.out.println("This island has been raided recently.");
+					}
+					break;
+				case 2:
+					break;
+				case 3:
+					System.out.println("Selling your loot at the local markets......");
+	//				for(int i = 0; i < currentPlayer.getLoot().size(); i++)
+	//				{
+	//					currentPlayer.setGold(currentPlayer.getLoot());
+	//				}
+					break;
+				case 4:
+					currentPlayer.setCrewCount(currentPlayer.getCrewCount() + (currentPlayer.getCrewCount()/3));
+					System.out.println("Recruiting local gangs........\n\n\n\n\n\n\n\n");
+					System.out.println(currentPlayer.toString());
+					break;
+				case 5:
+					System.out.println("Sailing back to the ocean blue.........");
+					isValid = true;
+					break;
 				}
-				else
+			}while(!isValid);
+		}
+		else
+		{
+			boolean isValid = false;
+			do{
+				UserInput.displayIsland();
+				int menuChoice = UserInput.userResponseToMenu(5);
+				
+				switch(menuChoice)
 				{
-					System.out.println("This island has been raided recently.");
+				case 1:
+					combat();
+					break;
+				case 2:
+					if(!landedIsland.isRaided())
+					{
+						System.out.println("Taking Loot........\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+						
+						int numOfLoot = rand.nextInt(5) + 1;
+						
+						for(int i = 0; i < numOfLoot; i++)
+						{
+							currentPlayer.addLoot(new Loot());
+						}
+						
+						landedIsland.setRaided(true);
+					}
+					else
+					{
+						System.out.println("This island has been raided recently.");
+					}
+					break;
+				case 3:
+					break;
+				case 4:
+					System.out.println("Selling your loot at the local markets......");
+	//				for(int i = 0; i < currentPlayer.getLoot().size(); i++)
+	//				{
+	//					currentPlayer.setGold(currentPlayer.getLoot());
+	//				}
+					break;
+				case 5:
+					System.out.println("Sailing back to the ocean blue.........");
+					isValid = true;
+					break;
 				}
-				break;
-			case 3:
-				break;
-			case 4:
-				System.out.println("Selling your loot at the local markets......");
-//				for(int i = 0; i < currentPlayer.getLoot().size(); i++)
-//				{
-//					currentPlayer.setGold(currentPlayer.getLoot());
-//				}
-				break;
-			case 5:
-				System.out.println("Sailing back to the ocean blue.........");
-				isValid = true;
-				break;
-			}
-		}while(!isValid);
+			}while(!isValid);
+		}
 	}
 	
 	public static int characterSelection()

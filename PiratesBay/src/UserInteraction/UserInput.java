@@ -184,4 +184,21 @@ public class UserInput
 			System.out.println((i+1) + ") " + menu[i]);
 		}
 	}
+	
+	public static void displayOwnedIsland()
+	{
+		String[] menu = {
+				"Gather Supplies",
+				"Buy Loot",
+				"Sell Loot",
+				"Recruit Crew",
+				"Leave"
+		};
+		
+		System.out.println("What do you wish to do on this island?");
+		for(int i = 0; i < menu.length; i++)
+		{
+			System.out.println((i+1) + ") " + menu[i]);
+		}
+	}
 }
