@@ -42,7 +42,7 @@ protected Random rand = new Random();
 	
 	public void sell(Player seller)
 	{
-		seller.removeLoot(this);
+//		seller.removeLoot(this);
 		seller.setGold(seller.getGold() + this.value);
 	}
 	

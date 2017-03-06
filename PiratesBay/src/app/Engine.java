@@ -30,7 +30,11 @@ public class Engine
 			
 			if(choice == 1)
 			{
-				combat();
+				if(!combat())
+				{
+					System.out.println("You have died: GAME OVER.");
+					finishGame = true;
+				}
 			}
 			else if(choice == 2)
 			{
@@ -48,7 +52,7 @@ public class Engine
 			}
 			else if(choice == 3)
 			{
-				System.out.println(currentPlayer.getLoot().values());
+				currentPlayer.printLoot();
 			}
 			else if(choice == 4)
 			{
@@ -97,10 +101,12 @@ public class Engine
 		if(playerWon)
 		{
 			System.out.println("Yay you win!");
+			generateLoot();
 		}
 		else
 		{
 			System.out.println("NOOOOOOOOO! you lose :(");
+			combatLoseEvent(enemy);
 		}
 		
 		if(didEscape)
@@ -188,13 +194,10 @@ public class Engine
 					break;
 				case 3:
 					System.out.println("Selling your loot at the local markets......");
-	//				for(int i = 0; i < currentPlayer.getLoot().size(); i++)
-	//				{
-	//					currentPlayer.setGold(currentPlayer.getLoot());
-	//				}
+					currentPlayer.sellLoot();
 					break;
 				case 4:
-					currentPlayer.setCrewCount(currentPlayer.getCrewCount() + (currentPlayer.getCrewCount()/3));
+					currentPlayer.setCrewCount(currentPlayer.getCrewCount() + (currentPlayer.getCrewCount()));
 					System.out.println("Recruiting local gangs........\n\n\n\n\n\n\n\n");
 					System.out.println(currentPlayer.toString());
 					break;
@@ -231,6 +234,8 @@ public class Engine
 						{
 							currentPlayer.addLoot(new Loot());
 						}
+						
+						currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (numOfLoot*5));
 						
 						landedIsland.setRaided(true);
 					}
@@ -282,5 +287,21 @@ public class Engine
 	public static void generateLoot()
 	{
 		currentPlayer.addLoot(new Loot());
+	}
+
+	public static void combatLoseEvent(Enemy e)
+	{
+		currentPlayer.setCrewCount(10);
+		currentPlayer.setGold(currentPlayer.getGold() - e.getGold());
+		
+		int lostLoot = rand.nextInt();
+		
+		for(int i = 0; i < lostLoot; i++)
+		{
+			if(currentPlayer.getLoot().size() > 0)
+			{
+				currentPlayer.removeLoot(i);
+			}
+		}
 	}
 }

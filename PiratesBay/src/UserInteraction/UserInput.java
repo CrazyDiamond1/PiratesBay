@@ -47,10 +47,10 @@ public class UserInput
 		switch(choice){
 			
 		case 1:
-				isle.buyItem(p);
+//				isle.buyItem(p);
 				break;
 		case 2:
-				isle.sellItem(p);
+//				isle.sellItem(p);
 				break;
 		case 3: 
 				//isle.raid();

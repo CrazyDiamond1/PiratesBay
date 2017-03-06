@@ -1,11 +1,11 @@
 package models;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Player extends Character
 {
-	private HashMap<String, Loot> loot = new HashMap<>();
+	private ArrayList<Loot> loot = new ArrayList<>();
 	private Equipment gear = new Equipment(0, 0, "Nothing", 0);
 	private Ship ship = new Ship(0, 0, "Dingy", 0);
 	
@@ -71,18 +71,27 @@ public class Player extends Character
 
 	public void sellLoot()
 	{
-		this.setGold(this.getGold() + loot.get(loot.keySet()).getValue());
-		loot.remove(loot.keySet());
+		for(Loot l : loot)
+		{
+			this.setGold(this.getGold() + l.value);
+			loot.remove(l);
+		}
 	}
 	
-	public HashMap<String, Loot> getLoot() {
+	public ArrayList<Loot> getLoot()
+	{
 		return loot;
 	}
-
-	public void setLoot(HashMap<String, Loot> loot) {
-		this.loot = loot;
+	
+	public String printLoot()
+	{
+		for(Loot l : loot)
+		{
+			System.out.println(l.toString());
+		}
+		return "";
 	}
-
+	
 	@Override
 	public void takeDamage(int damage) {
 
@@ -90,11 +99,11 @@ public class Player extends Character
 	}
 
 	public void addLoot(Loot lootItem) {
-		loot.put(lootItem.getName(), lootItem);
+		loot.add(lootItem);
 	}
 
-	public void removeLoot(Loot lootItem) {
-		loot.remove(lootItem.getName());
+	public void removeLoot(int index) {
+		loot.remove(index);
 	}
 	
 	@Override
