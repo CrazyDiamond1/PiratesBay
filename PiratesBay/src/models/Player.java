@@ -69,6 +69,12 @@ public class Player extends Character
 
 	}
 
+	public void sellLoot()
+	{
+		this.setGold(this.getGold() + loot.get(loot.keySet()).getValue());
+		loot.remove(loot.keySet());
+	}
+	
 	public HashMap<String, Loot> getLoot() {
 		return loot;
 	}

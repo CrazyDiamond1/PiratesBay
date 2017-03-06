@@ -44,7 +44,7 @@ public class Engine
 					combat();
 				}
 				
-				move(islands.get(islandNames[islandChoice]));
+				islandInteraction(islands.get(islandNames[islandChoice]));
 			}
 			else if(choice == 3)
 			{
@@ -57,10 +57,11 @@ public class Engine
 		}while(!finishGame);
 	}
 	
-	public static void combat()
+	public static boolean combat()
 	{
 		Enemy enemy = generateEnemy(currentPlayer.getCrewCount(), characterDifficulty);
 		
+		boolean didEscape = false;
 		boolean playerWon = false;
 		boolean endCombat = false;
 		do{
@@ -74,7 +75,7 @@ public class Engine
 			int enemyChoice = rand.nextInt(2) + 1;
 			System.out.println("Enemy chose: " + enemyChoice);
 			
-			endCombat = calcCombatResult(playerChoice, enemyChoice, enemy);
+			didEscape = calcCombatResult(playerChoice, enemyChoice, enemy);
 			
 			
 			if(!endCombat)
@@ -91,7 +92,7 @@ public class Engine
 					playerWon = false;
 				}
 			}
-		}while(!endCombat);
+		}while(!endCombat || didEscape);
 		
 		if(playerWon)
 		{
@@ -102,6 +103,13 @@ public class Engine
 			System.out.println("NOOOOOOOOO! you lose :(");
 		}
 		
+		if(didEscape)
+		{
+			playerWon = true;
+			System.out.println("You have run away.");
+		}
+		
+		return playerWon;
 	}
 	
 	public static boolean calcCombatResult(int playerChoice, int enemyChoice, Enemy enemy)
@@ -141,7 +149,7 @@ public class Engine
 		return escaped;
 	}
 	
-	public static void move(Island landedIsland)
+	public static void islandInteraction(Island landedIsland)
 	{
 		if(rand.nextBoolean())
 		{
@@ -207,7 +215,10 @@ public class Engine
 				switch(menuChoice)
 				{
 				case 1:
-					combat();
+					if(combat())
+					{
+						landedIsland.setOwned(true);
+					}
 					break;
 				case 2:
 					if(!landedIsland.isRaided())
@@ -232,10 +243,8 @@ public class Engine
 					break;
 				case 4:
 					System.out.println("Selling your loot at the local markets......");
-	//				for(int i = 0; i < currentPlayer.getLoot().size(); i++)
-	//				{
-	//					currentPlayer.setGold(currentPlayer.getLoot());
-	//				}
+					currentPlayer.sellLoot();
+					System.out.println(currentPlayer.toString());
 					break;
 				case 5:
 					System.out.println("Sailing back to the ocean blue.........");
