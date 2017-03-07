@@ -203,16 +203,13 @@ public class Engine {
 					}
 					break;
 				case 3:
-					//buy
 					break;
 				case 4:
-					//sell
 					System.out.println("Selling your loot at the local markets......");
 					currentPlayer.sellLoot();
 					System.out.println(currentPlayer.toString());
 					break;
 				case 5:
-					//leave
 					System.out.println("Sailing back to the ocean blue.........");
 					leaving = true;
 					break;
