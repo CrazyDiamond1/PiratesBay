@@ -3,7 +3,7 @@ package app;
 import java.util.HashMap;
 import java.util.Random;
 
-import userInteraction.UserInput;
+import UserInteraction.UserInput;
 import models.Enemy;
 import models.Island;
 import models.Loot;

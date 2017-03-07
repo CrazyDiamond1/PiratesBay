@@ -3,6 +3,8 @@ package models;
 import java.util.HashMap;
 import java.util.Random;
 
+import UserInteraction.UserInput;
+
 public class Island 
 {
 	Random rand = new Random();
