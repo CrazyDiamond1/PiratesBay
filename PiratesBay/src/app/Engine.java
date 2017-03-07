@@ -64,8 +64,7 @@ public class Engine {
 		boolean playerWon = false;
 		boolean endCombat = false;
 		do {
-			System.out.println(
-					currentPlayer.getCaptainName() + "\n" + currentPlayer.getCrewCount() + "\n--------------------");
+			System.out.println(currentPlayer.getCaptainName() + "\n" + currentPlayer.getCrewCount() + "\n--------------------");
 			System.out.println(enemy.getCaptainName() + "\n" + enemy.getCrewCount() + "\n---------------------");
 
 			UserInput.combatMenu();
@@ -93,6 +92,8 @@ public class Engine {
 		if (playerWon) {
 			System.out.println("Yay you win!");
 			generateLoot();
+			System.out.println("You recieved: " + enemy.getGold() + " Gold");
+			currentPlayer.setGold(currentPlayer.getGold() + enemy.getGold());
 		} else {
 			System.out.println("NOOOOOOOOO! you lose :(");
 			combatLoseEvent(enemy);
