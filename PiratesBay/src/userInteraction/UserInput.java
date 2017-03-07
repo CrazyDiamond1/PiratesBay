@@ -140,10 +140,11 @@ public class UserInput
 			"Pick a fight",
 			"Travel to an Island",
 			"Check Inventory",
+			"Check Character Sheet",
 			"Retire"
 		};
 		
-		System.out.println("\n\n\n\n\n\n\n\n\n");
+		System.out.println("\n\n\n\n\n\n\n\n");
 		System.out.println("What would you like to do?");
 		for(int i = 0; i < choices.length; i++)
 		{
@@ -168,7 +169,7 @@ public class UserInput
 		return islandNames;
 	}
 	
-	public static void displayIsland()
+	public static void displayIsland(String islandName)
 	{
 		String[] menu = {
 				"Attack",
@@ -178,14 +179,14 @@ public class UserInput
 				"Leave"
 		};
 		
-		System.out.println("What do you wish to do on this island?");
+		System.out.println("What do you wish to do on " + islandName + "?");
 		for(int i = 0; i < menu.length; i++)
 		{
 			System.out.println((i+1) + ") " + menu[i]);
 		}
 	}
 	
-	public static void displayOwnedIsland()
+	public static void displayOwnedIsland(String islandName)
 	{
 		String[] menu = {
 				"Gather Supplies",
@@ -195,7 +196,7 @@ public class UserInput
 				"Leave"
 		};
 		
-		System.out.println("What do you wish to do on this island?");
+		System.out.println("What do you wish to do on " + islandName + "?");
 		for(int i = 0; i < menu.length; i++)
 		{
 			System.out.println((i+1) + ") " + menu[i]);

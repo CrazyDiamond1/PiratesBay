@@ -24,18 +24,20 @@ public class Engine {
 		boolean finishGame = false;
 		do {
 			UserInput.displayMainScreen();
-			int choice = UserInput.userResponseToMenu(4);
-
-			if (choice == 1) {
-				if (!combat()) {
-					System.out.println("You have died: GAME OVER.");
-					finishGame = true;
-				}
-			} else if (choice == 2) {
+			int choice = UserInput.userResponseToMenu(5);
+			
+			if(choice == 1)
+			{
+				combat();
+			}
+			else if(choice == 2)
+			{
 				String[] islandNames = UserInput.displayIslands(islands);
-				int islandChoice = UserInput.userResponseToMenu(islands.size());
-
-				if ((rand.nextInt(100) + 1) > 75) {
+				int islandChoice = UserInput.userResponseToMenu(islands.size())-1;
+				
+				
+				if((rand.nextInt(100)+1) > 75)
+				{
 					System.out.println("You were attacked!");
 					combat();
 				}
@@ -43,7 +45,13 @@ public class Engine {
 				islandInteraction(islands.get(islandNames[islandChoice]));
 			} else if (choice == 3) {
 				currentPlayer.printLoot();
-			} else if (choice == 4) {
+			}
+			else if(choice == 4)
+			{
+				System.out.println(currentPlayer.toString());
+			}
+			else if(choice == 5)
+			{
 				finishGame = true;
 			}
 		} while (!finishGame);
@@ -132,7 +140,7 @@ public class Engine {
 
 		do {
 			if (landedIsland.isOwned()) {
-				UserInput.displayOwnedIsland();
+				UserInput.displayOwnedIsland(landedIsland.getName());
 				int menuChoice = UserInput.userResponseToMenu(6);
 
 				switch (menuChoice) {
@@ -168,7 +176,7 @@ public class Engine {
 					break;
 				}
 			} else {
-				UserInput.displayIsland();
+				UserInput.displayIsland(landedIsland.getName());
 				int menuChoice = UserInput.userResponseToMenu(5);
 
 				switch (menuChoice) {
@@ -224,25 +232,35 @@ public class Engine {
 		Enemy e = new Enemy(crewReference, difficulty);
 		return e;
 	}
-
-	public static void generateIslands() {
-		for (int i = 0; i < 10; i++) {
-			islands.put(new Island().getName(), new Island());
+	
+	public static void generateIslands()
+	{
+		for(int i = 0; i < 10; i++)
+		{
+			Island island = new Island();
+			islands.put(island.getName(), island);
 		}
 	}
-
-	public static void generateLoot() {
-		currentPlayer.addLoot(new Loot());
+	
+	public static void generateLoot()
+	{
+		Loot lootItem = new Loot();
+		currentPlayer.addLoot(lootItem);
+		System.out.println("You have received: " + lootItem.getName());
 	}
 
 	public static void combatLoseEvent(Enemy e) {
 		currentPlayer.setCrewCount(10);
 		currentPlayer.setGold(currentPlayer.getGold() - e.getGold());
-
+		System.out.println("You lost: " + e.getGold() + " Gold");
+		
 		int lostLoot = rand.nextInt();
-
-		for (int i = 0; i < lostLoot; i++) {
-			if (currentPlayer.getLoot().size() > 0) {
+		
+		for(int i = 0; i < lostLoot; i++)
+		{
+			if(currentPlayer.getLoot().size() > 0)
+			{
+				System.out.println("You lost some: " + currentPlayer.getLoot().get(i).getName());
 				currentPlayer.removeLoot(i);
 			}
 		}

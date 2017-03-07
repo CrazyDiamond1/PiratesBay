@@ -1,10 +1,7 @@
 package models;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-
-import userInteraction.UserInput;
 
 public class Island 
 {

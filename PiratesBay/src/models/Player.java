@@ -61,10 +61,10 @@ public class Player extends Character
 			setDEF(20, 0);
 			int crew = 200;
 			setCrewCount(crew);
-			System.out.println("Default crew size: " + crew);
+//			System.out.println("Default crew size: " + crew);
 			int gold = 50;
 			setGold(gold);
-			System.out.println(" Default gold size: " + gold);
+//			System.out.println(" Default gold size: " + gold);
 		}
 
 	}

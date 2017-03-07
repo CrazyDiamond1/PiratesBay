@@ -14,6 +14,7 @@ public class Enemy extends Character
 		int nameSel = randold.nextInt(20);
 		String name = names[nameSel]; 
 		setCaptainName(name);
+		this.setGold(randold.nextInt(100) + 1);
 //		System.out.println(getCaptainName());
 		int crew = randold.nextInt(crewReference/2)+50;
 		setCrewCount(crew*difficulty);
