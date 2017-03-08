@@ -147,12 +147,11 @@ public class Engine {
 				switch (menuChoice) {
 				case 1:
 					if (!landedIsland.isRaided()) {
-						System.out.println("Taking Loot........\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-
+						System.out.println("Gathering Resources........\n\n\n\n");
 						int numOfLoot = rand.nextInt(5) + 1;
 
 						for (int i = 0; i < numOfLoot; i++) {
-							currentPlayer.addLoot(new Loot());
+							generateLoot();
 						}
 
 						landedIsland.setRaided(true);
@@ -168,7 +167,7 @@ public class Engine {
 					break;
 				case 4:
 					currentPlayer.setCrewCount(currentPlayer.getCrewCount() + (currentPlayer.getCrewCount()));
-					System.out.println("Recruiting local gangs........\n\n\n\n\n\n\n\n");
+					System.out.println("Recruiting local gangs........\n\n\n\n");
 					System.out.println(currentPlayer.toString());
 					break;
 				case 5:
@@ -188,15 +187,16 @@ public class Engine {
 					break;
 				case 2:
 					if (!landedIsland.isRaided()) {
-						System.out.println("Taking Loot........\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+						System.out.println("Taking Loot........\n\n\n\n");
 
 						int numOfLoot = rand.nextInt(5) + 1;
 
 						for (int i = 0; i < numOfLoot; i++) {
-							currentPlayer.addLoot(new Loot());
+							generateLoot();
 						}
 
 						currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (numOfLoot * 5));
+						System.out.println((numOfLoot*5) + " men were lost in the raid.");
 
 						landedIsland.setRaided(true);
 					} else {
@@ -223,6 +223,7 @@ public class Engine {
 	}
 
 	public static int characterSelection() {
+		
 		UserInput.presetMenu();
 		int selection = UserInput.userResponseToMenu(4);
 		String nameCaptain = UserInput.promptForInput("Enter your capitan's name: ", false);
@@ -232,7 +233,7 @@ public class Engine {
 	}
 
 	public static Enemy generateEnemy(int crewReference, int difficulty) {
-
+		
 		Enemy e = new Enemy(crewReference, difficulty);
 		return e;
 	}
@@ -241,31 +242,36 @@ public class Engine {
 	{
 		for(int i = 0; i < 10; i++)
 		{
-			Island island = new Island();
-			islands.put(island.getName(), island);
+			Island island = new Island();//creates a new instance of island
+			islands.put(island.getName(), island);//adds the new island to the HashMap of islands
 		}
 	}
 	
-	public static void generateLoot()
+	public static void generateLoot()//Creates loot.
 	{
-		Loot lootItem = new Loot();
-		currentPlayer.addLoot(lootItem);
-		System.out.println("You have received: " + lootItem.getName());
+		Loot lootItem = new Loot();//creates a new instance of loot
+		currentPlayer.addLoot(lootItem);//adds new loot to players loot horde
+		System.out.println("You have received: " + lootItem.getName());//prints to the user what loot was obtained
 	}
 
-	public static void combatLoseEvent(Enemy e) {
+	public static void combatLoseEvent(Enemy e)//if the player loses combat do this.
+	{
 		currentPlayer.setCrewCount(10);
-		currentPlayer.setGold(currentPlayer.getGold() - e.getGold());
+		currentPlayer.setGold(currentPlayer.getGold() - e.getGold());//subtracts the enemies gold amount from the players gold
+		if(currentPlayer.getGold() < 0)
+		{
+			currentPlayer.setGold(0);
+		}
 		System.out.println("You lost: " + e.getGold() + " Gold");
 		
-		int lostLoot = rand.nextInt();
+		int lostLoot = rand.nextInt();//the amount of loot items lost to the enemy
 		
 		for(int i = 0; i < lostLoot; i++)
 		{
 			if(currentPlayer.getLoot().size() > 0)
 			{
 				System.out.println("You lost some: " + currentPlayer.getLoot().get(i).getName());
-				currentPlayer.removeLoot(i);
+				currentPlayer.removeLoot(i);//removing the loot from the player
 			}
 		}
 	}
