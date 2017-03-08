@@ -73,7 +73,7 @@ public class Player extends Character
 	{
 		for(Loot l : loot)
 		{
-			this.setGold(this.getGold() + l.value);
+			setGold(getGold() + l.value);
 			loot.remove(l);
 		}
 	}
