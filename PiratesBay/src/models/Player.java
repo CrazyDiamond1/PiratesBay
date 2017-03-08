@@ -3,6 +3,8 @@ package models;
 import java.util.ArrayList;
 import java.util.Random;
 
+import userInteraction.UserInput;
+
 public class Player extends Character
 {
 	private ArrayList<Loot> loot = new ArrayList<>();
@@ -71,10 +73,18 @@ public class Player extends Character
 
 	public void sellLoot()
 	{
-		for(Loot l : loot)
+		
+		if(loot.size() > 0){
+		for(int i = 0; i < loot.size(); i++)
 		{
-			setGold(getGold() + l.value);
-			loot.remove(l);
+			System.out.println((i+1)+") "+loot.get(i).shortString());
+		}
+		
+		int choice = UserInput.userResponseToMenu(loot.size()+1) - 1;
+		
+		setGold(getGold() + loot.get(choice).getValue());
+		
+		loot.remove(choice);
 		}
 	}
 	

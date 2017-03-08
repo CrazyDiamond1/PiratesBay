@@ -66,6 +66,10 @@ protected Random rand = new Random();
 		return names[i];
 	}
 	
+	public String shortString(){
+		return this.getName();
+	}
+	
 	@Override
 	public String toString()
 	{
