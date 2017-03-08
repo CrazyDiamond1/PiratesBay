@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import UserInteraction.UserInput;
+import userInteraction.UserInput;
 import models.Enemy;
 import models.Island;
 import models.Loot;
