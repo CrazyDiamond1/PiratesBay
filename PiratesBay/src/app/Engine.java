@@ -55,8 +55,10 @@ public class Engine {
 				finishGame = true;
 			}
 		} while (!finishGame);
+		
+		retirementGameplay();
 	}
-
+	
 	public static boolean combat() {
 		Enemy enemy = generateEnemy(currentPlayer.getCrewCount(), characterDifficulty);
 
@@ -94,6 +96,9 @@ public class Engine {
 			generateLoot();
 			System.out.println("You recieved: " + enemy.getGold() + " Gold");
 			currentPlayer.setGold(currentPlayer.getGold() + enemy.getGold());
+			int numOfCrew = rand.nextInt(20)+1;
+			System.out.println(numOfCrew + "men join your cause.");
+			currentPlayer.setCrewCount(currentPlayer.getCrewCount() + numOfCrew);
 		} else {
 			System.out.println("NOOOOOOOOO! you lose :(");
 			combatLoseEvent(enemy);
@@ -147,7 +152,7 @@ public class Engine {
 				switch (menuChoice) {
 				case 1:
 					if (!landedIsland.isRaided()) {
-						System.out.println("Gathering Resources........\n\n\n\n");
+						System.out.println("Gathering Supplies........\n\n\n\n");
 						int numOfLoot = rand.nextInt(5) + 1;
 
 						for (int i = 0; i < numOfLoot; i++) {
@@ -156,7 +161,7 @@ public class Engine {
 
 						landedIsland.setRaided(true);
 					} else {
-						System.out.println("This island has been raided recently.");
+						System.out.println("This island has no supplies to take.");
 					}
 					break;
 				case 2:
@@ -191,13 +196,20 @@ public class Engine {
 
 						int numOfLoot = rand.nextInt(5) + 1;
 
-						for (int i = 0; i < numOfLoot; i++) {
-							generateLoot();
-						}
-
 						currentPlayer.setCrewCount(currentPlayer.getCrewCount() - (numOfLoot * 5));
 						System.out.println((numOfLoot*5) + " men were lost in the raid.");
-
+						
+						if(currentPlayer.getCrewCount() < 0)
+						{
+							System.out.println("You were unable to take any loot and you were force out of town.");
+							System.out.println("However, a few men decided to join your pirating ways.");
+							currentPlayer.setCrewCount(20);
+						}
+						else {
+							for (int i = 0; i < numOfLoot; i++) {
+								generateLoot();
+							}
+						}
 						landedIsland.setRaided(true);
 					} else {
 						System.out.println("This island has been raided recently.");
@@ -226,7 +238,7 @@ public class Engine {
 		
 		UserInput.presetMenu();
 		int selection = UserInput.userResponseToMenu(4);
-		String nameCaptain = UserInput.promptForInput("Enter your capitan's name: ", false);
+		String nameCaptain = UserInput.promptForInput("Enter your capitan's name: ");
 		currentPlayer = new Player(selection, nameCaptain);
 
 		return selection;
@@ -273,6 +285,26 @@ public class Engine {
 				System.out.println("You lost some: " + currentPlayer.getLoot().get(i).getName());
 				currentPlayer.removeLoot(i);//removing the loot from the player
 			}
+		}
+	}
+
+	public static void retirementGameplay()
+	{
+		UserInput.retirmentMenu();
+		int richesChoice = UserInput.userResponseToMenu(5);
+		
+		switch(richesChoice)
+		{
+		case 1://bury your loot
+			break;
+		case 2://give it to charity
+			break;
+		case 3://give it to mum
+			break;
+		case 4://horde it
+			break;
+		case 5://throw it away
+			break;
 		}
 	}
 }

@@ -109,28 +109,28 @@ public class UserInput
 		return choiceI;
 	}
 
-	public static String promptForInput(String prompt, boolean allowEmpty) {
+	public static String promptForInput(String prompt) {
 		BufferedReader readRacer = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println(prompt);
-		boolean bool = false;
+		boolean validInput = false;
 		String input = null;
 		do {
-
-			bool = false;
 
 			try {
 				input = readRacer.readLine();
 			} catch (IOException e) {
 
 			}
-			if (allowEmpty == false) {
-
-				if (input == "" || input == null) {
-					bool = true;
-					System.out.println("You must enter text.");
-				}
+			
+			if (input == null || input.equals("")) {
+				validInput = false;
+				System.out.println("You must enter a name.");
 			}
-		} while (bool);
+			else
+			{
+				validInput = true;
+			}
+		} while (!validInput);
 		return input;
 	}
 	
@@ -200,6 +200,40 @@ public class UserInput
 		for(int i = 0; i < menu.length; i++)
 		{
 			System.out.println((i+1) + ") " + menu[i]);
+		}
+	}
+	
+	public static void retirmentMenu()
+	{
+		String[] menu = {
+				"Bury it",
+				"Give it to charity",
+				"Send it to ye mum",
+				"Horde it in a secret cave",
+				"Throw it overboard"
+		};
+		
+		System.out.println("What will you like to do with your riches?");
+		for(int i = 0; i < menu.length; i++)
+		{
+			System.out.println((i+1) + ") " + menu[i]);
+		}
+	}
+	
+	public static void storyTime(int choice, Player curPlayer)
+	{
+		switch(choice)
+		{
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
 		}
 	}
 }
