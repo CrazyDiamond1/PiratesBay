@@ -48,4 +48,14 @@ public abstract class Character
 	public void setDEF(int dEF, int defMod) {
 		DEF = dEF + defMod;
 	}
+	
+	public void updateATK()
+	{
+		ATK += equipment.getATKMod();
+	}
+	
+	public void updateDEF()
+	{
+		DEF += equipment.getDEFMod();
+	}
 }
