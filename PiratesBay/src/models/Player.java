@@ -122,9 +122,12 @@ public class Player extends Character
 	@Override
 	public void takeDamage(int damage) {
 
-		setCrewCount(getCrewCount() - damage);
+		if(damage > 0)
+		{
+			setCrewCount(getCrewCount() - damage);
+		}
 	}
-
+	
 	public void addLoot(Loot lootItem) {
 		loot.add(lootItem);
 	}

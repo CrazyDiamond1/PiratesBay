@@ -106,7 +106,7 @@ public class Engine {
 			System.out.println("You recieved: " + enemy.getGold() + " Gold");
 			currentPlayer.setGold(currentPlayer.getGold() + enemy.getGold());
 			int numOfCrew = rand.nextInt(20)+1;
-			System.out.println(numOfCrew + "men join your cause.");
+			System.out.println(numOfCrew + " men join your cause.");
 			currentPlayer.setCrewCount(currentPlayer.getCrewCount() + numOfCrew);
 		} else {
 			
@@ -325,14 +325,19 @@ public class Engine {
 		switch(richesChoice)
 		{
 		case 1://bury your loot
+			UserInput.storyTime(1, currentPlayer);
 			break;
 		case 2://give it to charity
+			UserInput.storyTime(2, currentPlayer);
 			break;
 		case 3://give it to mum
+			UserInput.storyTime(3, currentPlayer);
 			break;
 		case 4://horde it
+			UserInput.storyTime(4, currentPlayer);
 			break;
 		case 5://throw it away
+			UserInput.storyTime(5, currentPlayer);
 			break;
 		}
 	}

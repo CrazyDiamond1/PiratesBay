@@ -47,7 +47,10 @@ public class Enemy extends Character
 
 	@Override
 	public void takeDamage(int damage) {
-		setCrewCount(getCrewCount() - damage);
+		if(damage > 0)
+		{
+			setCrewCount(getCrewCount() - damage);
+		}
 	}
 	
 	@Override
