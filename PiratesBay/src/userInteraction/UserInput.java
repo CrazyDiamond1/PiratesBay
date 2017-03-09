@@ -22,49 +22,6 @@ public class UserInput
 		}
 	}
 	
-	public static void islandMenu(Island isle, Player p){
-		
-		String[] actions = {"Buy", "Sell", "Raid", "Attack"};
-		
-		int choice = -1;
-		int counter = 0;
-		
-		if(isle.isOwned()){
-			
-		actions[5] = "Recruit Natives";
-		
-		for(String option : actions){
-			
-			counter++;
-			System.out.println(counter + ")" + option + "\n");
-		}
-		choice = userResponseToMenu(5);
-		} else{
-			
-			choice = userResponseToMenu(5);
-		}
-		
-		switch(choice){
-			
-		case 1:
-//				isle.buyItem(p);
-				break;
-		case 2:
-//				isle.sellItem(p);
-				break;
-		case 3: 
-				//isle.raid();
-				break;
-		case 4:
-				//isle.attack();
-				break;
-		case 5:
-				//isle.recruit();
-				break;
-		}
-		
-	}
-	
 	public static void combatMenu()
 	{
 		String[] choices ={

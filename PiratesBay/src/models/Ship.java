@@ -2,31 +2,22 @@ package models;
 
 public class Ship extends Loot 
 {
-	private int speedMod;
 	private int DEFMod;
+	private int maxCrewShip;
 	
 	public Ship()
 	{
 		this.name = namePicker();
 		this.value = rand.nextInt(100) + 1;
-		this.speedMod = rand.nextInt(30) + 1;
 		this.DEFMod = rand.nextInt(30) + 1;
+		this.maxCrewShip = rand.nextInt(700) + 100;
 	}
 	
 	public Ship(int s, int d, String name, int value)
 	{
 		this.name = name;
-		this.speedMod = s;
 		this.DEFMod = d;
 		this.value = value;
-	}
-
-	public int getSpeedMod() {
-		return speedMod;
-	}
-
-	public void setSpeedMod(int speedMod) {
-		this.speedMod = speedMod;
 	}
 	
 	@Override

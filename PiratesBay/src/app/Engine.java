@@ -10,12 +10,14 @@ import models.Loot;
 import models.Player;
 
 public class Engine {
+	
 	private static Random rand = new Random();
 	private static Player currentPlayer;
 	private static int characterDifficulty;
 	private static HashMap<String, Island> islands = new HashMap<>();
 
 	public static void run() {
+		
 		generateIslands();
 
 		characterDifficulty = characterSelection();
@@ -23,6 +25,7 @@ public class Engine {
 
 		boolean finishGame = false;
 		do {
+			
 			UserInput.displayMainScreen();
 			int choice = UserInput.userResponseToMenu(5);
 			
@@ -44,6 +47,7 @@ public class Engine {
 
 				islandInteraction(islands.get(islandNames[islandChoice]));
 			} else if (choice == 3) {
+				
 				currentPlayer.printLoot();
 			}
 			else if(choice == 4)
@@ -60,12 +64,14 @@ public class Engine {
 	}
 	
 	public static boolean combat() {
+		
 		Enemy enemy = generateEnemy(currentPlayer.getCrewCount(), characterDifficulty);
 
 		boolean didEscape = false;
 		boolean playerWon = false;
 		boolean endCombat = false;
 		do {
+			
 			System.out.println(currentPlayer.getCaptainName() + "\n" + currentPlayer.getCrewCount() + "\n--------------------");
 			System.out.println(enemy.getCaptainName() + "\n" + enemy.getCrewCount() + "\n---------------------");
 
@@ -79,7 +85,9 @@ public class Engine {
 			didEscape = calcCombatResult(playerChoice, enemyChoice, enemy);
 
 			if (!endCombat) {
+				
 				if (enemy.getCrewCount() <= 0) {
+					
 					endCombat = true;
 					playerWon = true;
 				}
@@ -92,6 +100,7 @@ public class Engine {
 		} while (!endCombat || didEscape);
 
 		if (playerWon) {
+			
 			System.out.println("Yay you win!");
 			generateLoot();
 			System.out.println("You recieved: " + enemy.getGold() + " Gold");
@@ -100,11 +109,13 @@ public class Engine {
 			System.out.println(numOfCrew + "men join your cause.");
 			currentPlayer.setCrewCount(currentPlayer.getCrewCount() + numOfCrew);
 		} else {
+			
 			System.out.println("NOOOOOOOOO! you lose :(");
 			combatLoseEvent(enemy);
 		}
 
 		if (didEscape) {
+			
 			playerWon = true;
 			System.out.println("You have run away.");
 		}
@@ -113,23 +124,30 @@ public class Engine {
 	}
 
 	public static boolean calcCombatResult(int playerChoice, int enemyChoice, Enemy enemy) {
+		
 		boolean escaped = false;
 		if (playerChoice == 3) {
+			
 			if (enemyChoice == 1) {
+				
 				currentPlayer.takeDamage(enemy.getATK());
 			}
 
 			escaped = rand.nextBoolean();
 		} else {
 			if (playerChoice == 1 && enemyChoice == 1) {
+				
 				currentPlayer.takeDamage(enemy.getATK() * 2);
 				enemy.takeDamage(currentPlayer.getATK() * 2);
 			} else if (playerChoice == 2 && enemyChoice == 2) {
+				
 				currentPlayer.takeDamage(enemy.getDEF() / 3);
 				enemy.takeDamage(currentPlayer.getDEF() / 3);
 			} else if (playerChoice == 1 && enemyChoice == 2) {
+				
 				enemy.takeDamage(currentPlayer.getATK() - enemy.getDEF());
 			} else if (playerChoice == 2 && enemyChoice == 1) {
+				
 				currentPlayer.takeDamage(enemy.getATK() - currentPlayer.getDEF());
 			}
 		}
@@ -138,18 +156,23 @@ public class Engine {
 	}
 
 	public static void islandInteraction(Island landedIsland) {
+		
 		if (rand.nextBoolean()) {
+			
 			landedIsland.setRaided(false);
 		}
 
 		boolean leaving = false;
 
 		do {
+			
 			if (landedIsland.isOwned()) {
+				
 				UserInput.displayOwnedIsland(landedIsland.getName());
 				int menuChoice = UserInput.userResponseToMenu(6);
 
 				switch (menuChoice) {
+				
 				case 1:
 					if (!landedIsland.isRaided()) {
 						System.out.println("Gathering Supplies........\n\n\n\n");
@@ -181,12 +204,15 @@ public class Engine {
 					break;
 				}
 			} else {
+				
 				UserInput.displayIsland(landedIsland.getName());
 				int menuChoice = UserInput.userResponseToMenu(5);
 
 				switch (menuChoice) {
+				
 				case 1:
 					if (combat()) {
+						
 						landedIsland.setOwned(true);
 					}
 					break;
@@ -212,6 +238,7 @@ public class Engine {
 						}
 						landedIsland.setRaided(true);
 					} else {
+						
 						System.out.println("This island has been raided recently.");
 					}
 					break;
@@ -280,8 +307,10 @@ public class Engine {
 		
 		for(int i = 0; i < lostLoot; i++)
 		{
+			
 			if(currentPlayer.getLoot().size() > 0)
 			{
+				
 				System.out.println("You lost some: " + currentPlayer.getLoot().get(i).getName());
 				currentPlayer.removeLoot(i);//removing the loot from the player
 			}
