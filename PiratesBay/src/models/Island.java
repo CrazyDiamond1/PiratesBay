@@ -277,6 +277,22 @@ public class Island
 	public void setRaided(boolean raided) {
 		this.raided = raided;
 	}
+
+	public HashMap<String, Loot> getBuyables() {
+		return buyables;
+	}
+
+	public void setBuyables(HashMap<String, Loot> buyables) {
+		this.buyables = buyables;
+	}
+
+	public String[] getNames() {
+		return names;
+	}
+
+	public void setNames(String[] names) {
+		this.names = names;
+	}
 	
 	
 }

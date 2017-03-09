@@ -22,49 +22,6 @@ public class UserInput
 		}
 	}
 	
-	public static void islandMenu(Island isle, Player p){
-		
-		String[] actions = {"Buy", "Sell", "Raid", "Attack"};
-		
-		int choice = -1;
-		int counter = 0;
-		
-		if(isle.isOwned()){
-			
-		actions[5] = "Recruit Natives";
-		
-		for(String option : actions){
-			
-			counter++;
-			System.out.println(counter + ")" + option + "\n");
-		}
-		choice = userResponseToMenu(5);
-		} else{
-			
-			choice = userResponseToMenu(5);
-		}
-		
-		switch(choice){
-			
-		case 1:
-//				isle.buyItem(p);
-				break;
-		case 2:
-//				isle.sellItem(p);
-				break;
-		case 3: 
-				//isle.raid();
-				break;
-		case 4:
-				//isle.attack();
-				break;
-		case 5:
-				//isle.recruit();
-				break;
-		}
-		
-	}
-	
 	public static void combatMenu()
 	{
 		String[] choices ={
@@ -109,28 +66,28 @@ public class UserInput
 		return choiceI;
 	}
 
-	public static String promptForInput(String prompt, boolean allowEmpty) {
+	public static String promptForInput(String prompt) {
 		BufferedReader readRacer = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println(prompt);
-		boolean bool = false;
+		boolean validInput = false;
 		String input = null;
 		do {
-
-			bool = false;
 
 			try {
 				input = readRacer.readLine();
 			} catch (IOException e) {
 
 			}
-			if (allowEmpty == false) {
-
-				if (input == "" || input == null) {
-					bool = true;
-					System.out.println("You must enter text.");
-				}
+			
+			if (input == null || input.equals("")) {
+				validInput = false;
+				System.out.println("You must enter a name.");
 			}
-		} while (bool);
+			else
+			{
+				validInput = true;
+			}
+		} while (!validInput);
 		return input;
 	}
 	
@@ -203,4 +160,37 @@ public class UserInput
 		}
 	}
 	
+	public static void retirmentMenu()
+	{
+		String[] menu = {
+				"Bury it",
+				"Give it to charity",
+				"Send it to ye mum",
+				"Horde it in a secret cave",
+				"Throw it overboard"
+		};
+		
+		System.out.println("What will you like to do with your riches?");
+		for(int i = 0; i < menu.length; i++)
+		{
+			System.out.println((i+1) + ") " + menu[i]);
+		}
+	}
+	
+	public static void storyTime(int choice, Player curPlayer)
+	{
+		switch(choice)
+		{
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		}
+	}
 }
