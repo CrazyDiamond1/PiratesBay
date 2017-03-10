@@ -1,0 +1,113 @@
+package models;
+
+import java.util.HashMap;
+import java.util.Random;
+
+public class Island {
+	
+	Random rand = new Random();
+	private HashMap<String, Loot> buyables = new HashMap<>();
+	private boolean isOwned = false;
+	private boolean raided = false;
+	private String name;
+
+	int i = 0;
+	private String[] names = { "Tortuga", "Cuba", "Puerto Rico", "Port Royal", "Ravens Cove", "Rambleshack",
+			"Isla Cruces", "Isla de Muerta", "Isla de Pelegosto", "Shipwreck Cove", "Black Pearl Island" };
+
+	public Island() {
+		
+		raided = false;
+		name = names[rand.nextInt(11)];
+	}
+
+	public void attack() {
+
+		setOwned(true);
+	}
+
+	public void recruit(Player player) {
+
+		int numOfNatives = player.getCrewCount() / 3;
+		if (player.getCrewCount() >= player.getShip().getMaxCrew()) {
+
+			System.out.println("Ye can't fit more crew on yer ship!");
+		} else if(player.getCrewCount() + numOfNatives >= player.getShip().getMaxCrew()){
+			
+			player.setCrewCount(player.getShip().getMaxCrew());
+			System.out.println("Yer ship is now filled!");
+		} else{
+			
+			player.setCrewCount(player.getCrewCount() + numOfNatives);
+		}
+	}
+
+	public boolean isOwned() {
+		
+		return isOwned;
+	}
+
+	public void setOwned(boolean isOwned) {
+		
+		this.isOwned = isOwned;
+	}
+
+	public String getName() {
+		
+		return name;
+	}
+
+	public void setName(String name) {
+		
+		this.name = name;
+	}
+
+	public boolean isRaided() {
+		
+		return raided;
+	}
+
+	public void setRaided(boolean raided) {
+		
+		this.raided = raided;
+	}
+
+	public HashMap<String, Loot> getBuyables() {
+		
+		return buyables;
+	}
+
+	public void setBuyables(HashMap<String, Loot> buyables) {
+		
+		this.buyables = buyables;
+	}
+
+	public String[] getNames() {
+		
+		return names;
+	}
+
+	public void setNames(String[] names) {
+		
+		this.names = names;
+	}
+
+	public void generateBuyableLoot(){
+		
+		Random randold = new Random();
+		for(int i = 0; i < 12; i++){
+			
+			int itemType = randold.nextInt(13);
+			if(itemType == 11 || itemType == 12){
+				
+				Ship ship = new Ship();
+				buyables.put(ship.getName(), ship);
+			} else if(itemType < 9){
+				
+				Loot loot = new Loot();
+				buyables.put(loot.getName(), loot);
+			}
+			
+		}
+	}
+}

@@ -11,8 +11,6 @@ public class Player extends Character
 {
 	private ArrayList<Loot> loot = new ArrayList<>();
 	private Equipment gear = new Equipment(0, 0, "Nothing", 0);
-	private Ship ship = new Ship(0, 0, "Dingy", 0);
-	private int maxCrew;
 
 	public Player(int selection, String name) {
 
@@ -27,7 +25,8 @@ public class Player extends Character
 			int gold = randold.nextInt(50) + 50;
 			setGold(gold);
 			setCrewCount(crew);
-			setMaxCrew(300);
+			Ship ship = new Ship(300, 0, "Dingy", 0);
+			setShip(ship);
 		} else if (selection == 2) {
 			setATK(16, 0);
 			setDEF(16, 0);
@@ -36,7 +35,8 @@ public class Player extends Character
 			int gold = randold.nextInt(50) + 50;
 			setGold(gold);
 			setCrewCount(crew);
-			setMaxCrew(100);
+			Ship ship = new Ship(200, 0, "Dingy", 0);
+			setShip(ship);
 		} else if (selection == 3) {
 			setATK(12, 0);
 			setDEF(12, 0);
@@ -45,7 +45,8 @@ public class Player extends Character
 			int gold = randold.nextInt(50) + 50;
 			setGold(gold);
 			setCrewCount(crew);
-			setMaxCrew(100);
+			Ship ship = new Ship(100, 0, "Dingy", 0);
+			setShip(ship);
 		} else if (selection == 4) {
 
 			setATK(8, 0);
@@ -55,7 +56,8 @@ public class Player extends Character
 			int gold = randold.nextInt(50) + 10;
 			setGold(gold);
 			setCrewCount(crew);
-			setMaxCrew(100);
+			Ship ship = new Ship(100, 0, "Dingy", 0);
+			setShip(ship);
 		} else {
 			setATK(20, 0);
 			setDEF(20, 0);
@@ -64,6 +66,8 @@ public class Player extends Character
 			// System.out.println("Default crew size: " + crew);
 			int gold = 50;
 			setGold(gold);
+			Ship ship = new Ship(200, 0, "Dingy", 0);
+			setShip(ship);
 			// System.out.println(" Default gold size: " + gold);
 		}
 	}
@@ -72,6 +76,9 @@ public class Player extends Character
 	{
 		
 		if(loot.size() > 0){
+			
+			System.out.println("Yer Gold: " + getGold() + "\n");
+			
 		for(int i = 0; i < loot.size(); i++)
 		{
 			System.out.println((i+1)+") "+loot.get(i).shortString());
@@ -82,29 +89,39 @@ public class Player extends Character
 		setGold(getGold() + loot.get(choice).getValue());
 		
 		loot.remove(choice);
+		} else {
+			
+			System.out.println("Ye got nuthin' to sell!");
 		}
 	}
 
-	public void buyLoot(Island i, int whatToBuy) {
+	public void buyLoot(Island island) {
+		
+		String[] lootNames = new String[island.getBuyables().size()];
+		island.getBuyables().keySet().toArray(lootNames);
+		
+		for(int i = 0; i < island.getBuyables().size(); i++)
+		{
+			System.out.println((i+1)+") "+island.getBuyables().get(lootNames[i]).shortString());
+		}
 
-		String[] lootNames = new String[12];
-		i.getBuyables().keySet().toArray(lootNames);
+		int whatToBuy = UserInput.userResponseToMenu(island.getBuyables().size());
+		
+		if (island.getBuyables().get(lootNames[whatToBuy-1]) instanceof Ship) {
 
-		if (i.getBuyables().get(lootNames[whatToBuy]) instanceof Ship) {
+			setShip((Ship) island.getBuyables().get(lootNames[whatToBuy-1]));
+			setGold(getGold() - (island.getBuyables().get(lootNames[whatToBuy-1]).getValue() - getShip().getValue()));
+			island.getBuyables().remove(island.getBuyables().get(lootNames[whatToBuy-1]));
+		} else if (island.getBuyables().get(lootNames[whatToBuy-1]) instanceof Equipment) {
 
-			setShip((Ship) i.getBuyables().get(lootNames[12]));
-			setGold(getGold() - (i.getBuyables().get(lootNames[12]).getValue() - getShip().getValue()));
-			i.getBuyables().remove(i.getBuyables().get(lootNames[12]));
-		} else if (i.getBuyables().get(lootNames[whatToBuy]) instanceof Equipment) {
-
-			setGear((Equipment) i.getBuyables().get(lootNames[12]));
-			setGold(getGold() - (i.getBuyables().get(lootNames[12]).getValue() - getGear().getValue()));
-			i.getBuyables().remove(i.getBuyables().get(lootNames[11]));
+			setGear((Equipment) island.getBuyables().get(lootNames[whatToBuy-1]));
+			setGold(getGold() - (island.getBuyables().get(lootNames[whatToBuy-1]).getValue() - getGear().getValue()));
+			island.getBuyables().remove(island.getBuyables().get(lootNames[whatToBuy-1]));
 		} else {
 
-			getLoot().add(i.getBuyables().get(lootNames[whatToBuy]));
-			setGold(getGold() - i.getBuyables().get(lootNames[whatToBuy]).getValue());
-			i.getBuyables().remove(whatToBuy);
+			getLoot().add(island.getBuyables().get(lootNames[whatToBuy-1]));
+			setGold(getGold() - island.getBuyables().get(lootNames[whatToBuy-1]).getValue());
+			island.getBuyables().remove(whatToBuy-1);
 		}
 	}
 
@@ -149,19 +166,12 @@ public class Player extends Character
 	}
 
 	public void setShip(Ship ship) {
+		
 		this.ship = ship;
 	}
 
 	public void setLoot(ArrayList<Loot> loot) {
 		this.loot = loot;
-	}
-	
-	public int getMaxCrew() {
-		return maxCrew;
-	}
-
-	public void setMaxCrew(int maxCrew) {
-		this.maxCrew = maxCrew;
 	}
 
 	@Override

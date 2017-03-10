@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Equipment" key="selection"/>
+		<item value="island" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="i"/>
 			<item value="Ship"/>
 			<item value="p."/>
 			<item value="{ "/>
@@ -15,9 +16,9 @@
 			<item value="-"/>
 			<item value="sellables"/>
 			<item value="sellable"/>
-			<item value="buy"/>
 		</list>
 		<list key="replacehistory">
+			<item value="island"/>
 			<item value="Equipment"/>
 			<item value="this."/>
 			<item value="{\n"/>
@@ -25,7 +26,6 @@
 			<item value="{"/>
 			<item value="+"/>
 			<item value="player.getLoot()"/>
-			<item value="sell"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -67,7 +67,9 @@ protected Random rand = new Random();
 	}
 	
 	public String shortString(){
-		return this.getName();
+		
+		String simpleDetails = (getName() + "\t" + getValue());
+		return simpleDetails;
 	}
 	
 	@Override

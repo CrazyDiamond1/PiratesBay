@@ -175,7 +175,7 @@ public class Engine {
 				
 				case 1:
 					if (!landedIsland.isRaided()) {
-						System.out.println("Gathering Supplies........\n\n\n\n");
+						System.out.println("Gathering Supplies........\n\n");
 						int numOfLoot = rand.nextInt(5) + 1;
 
 						for (int i = 0; i < numOfLoot; i++) {
@@ -188,14 +188,17 @@ public class Engine {
 					}
 					break;
 				case 2:
+					
+					currentPlayer.buyLoot(landedIsland);
 					break;
 				case 3:
-					System.out.println("Selling your loot at the local markets......");
+					System.out.println("Selling your loot at the local markets......\n");
 					currentPlayer.sellLoot();
 					break;
 				case 4:
-					currentPlayer.setCrewCount(currentPlayer.getCrewCount() + (currentPlayer.getCrewCount()));
-					System.out.println("Recruiting local gangs........\n\n\n\n");
+					
+					System.out.println("Recruiting local gangs........\n\n");
+					landedIsland.recruit(currentPlayer);
 					System.out.println(currentPlayer.toString());
 					break;
 				case 5:
@@ -218,7 +221,7 @@ public class Engine {
 					break;
 				case 2:
 					if (!landedIsland.isRaided()) {
-						System.out.println("Taking Loot........\n\n\n\n");
+						System.out.println("Taking Loot........\n\n");
 
 						int numOfLoot = rand.nextInt(5) + 1;
 
@@ -244,6 +247,7 @@ public class Engine {
 					break;
 				case 3:
 					//buy
+					currentPlayer.buyLoot(landedIsland);
 					break;
 				case 4:
 					//sell

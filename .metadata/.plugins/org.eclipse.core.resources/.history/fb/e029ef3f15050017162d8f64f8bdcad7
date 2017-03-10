@@ -1,0 +1,98 @@
+package models;
+
+import java.util.HashMap;
+import java.util.Random;
+
+import userInteraction.UserInput;
+
+public class Island 
+{
+	Random rand = new Random();
+	private HashMap<String, Loot> buyables = new HashMap<>();
+	private boolean isOwned = false;
+	private boolean raided = false;
+	private String name;
+	
+	int i = 0;
+	private String[] names = {
+			"Tortuga",
+			"Cuba",
+			"Puerto Rico",
+			"Port Royal",
+			"Ravens Cove",
+			"Rambleshack",
+			"Isla Cruces",
+			"Isla de Muerta",
+			"Isla de Pelegosto",
+			"Shipwreck Cove",
+			"Black Pearl Island"
+	};
+
+	public Island()
+	{
+		raided = false;
+		name = names[rand.nextInt(11)];
+	}
+
+	public int raid(Character player) {
+
+		
+		
+		return 0;
+	}
+
+	public void attack() {
+		
+		setOwned(true);
+	}
+
+	public int recruit(Character player) {
+
+		int numOfNatives = player.getCrewCount()/3;
+		player.setCrewCount(player.getCrewCount()+numOfNatives);
+		
+		return numOfNatives;
+	}
+
+	public boolean isOwned() {
+		return isOwned;
+	}
+
+	public void setOwned(boolean isOwned) {
+		this.isOwned = isOwned;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean isRaided() {
+		return raided;
+	}
+
+	public void setRaided(boolean raided) {
+		this.raided = raided;
+	}
+
+	public HashMap<String, Loot> getBuyables() {
+		return buyables;
+	}
+
+	public void setBuyables(HashMap<String, Loot> buyables) {
+		this.buyables = buyables;
+	}
+
+	public String[] getNames() {
+		return names;
+	}
+
+	public void setNames(String[] names) {
+		this.names = names;
+	}
+	
+	
+}
