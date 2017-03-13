@@ -112,12 +112,13 @@ public class Player extends Character {
 				setGold(getGold()
 						- (island.getBuyables().get(lootNames[whatToBuy - 1]).getValue() - getShip().getValue()));
 				setShip((Ship) island.getBuyables().get(lootNames[whatToBuy - 1]));
-				island.getBuyables().remove(lootNames[whatToBuy - 1]);
+				island.getBuyables().remove(island.getBuyables().get(lootNames[whatToBuy - 1]));
 			} else if (island.getBuyables().get(lootNames[whatToBuy - 1]) instanceof Equipment) {
 
-				setGold(getGold()- (island.getBuyables().get(lootNames[whatToBuy - 1]).getValue() - getGear().getValue()));
 				setGear((Equipment) island.getBuyables().get(lootNames[whatToBuy - 1]));
-				island.getBuyables().remove(lootNames[whatToBuy - 1]);
+				setGold(getGold()
+						- (island.getBuyables().get(lootNames[whatToBuy - 1]).getValue() - getGear().getValue()));
+				island.getBuyables().remove(island.getBuyables().get(lootNames[whatToBuy - 1]));
 			} else {
 
 				getLoot().add(island.getBuyables().get(lootNames[whatToBuy - 1]));
