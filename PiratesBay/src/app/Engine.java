@@ -188,7 +188,6 @@ public class Engine {
 					}
 					break;
 				case 2:
-					
 					currentPlayer.buyLoot(landedIsland);
 					break;
 				case 3:
